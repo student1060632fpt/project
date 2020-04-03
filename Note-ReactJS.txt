@@ -1,0 +1,113 @@
+============== Buoi 8 ==============
+ * Routing (basic)
+    npm install react-router-dom --save
+
+
+ * HTTP & Axios
+    npm install axios --save
+
+    npm install redux-thunk --save
+
+============== Buoi 9 ==============
+* HTTP & Axios (Chi tiet Phim)
+
+
+
+npm install redux-thunk --save
+
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
+
+
+============== Buoi 10 ==============
+* HOC
+* Routing (HomeLayout & AdminLayout)
+* Đăng nhập Admin
+-----------------------------------
+
+
+============= Buoi 11 ==============
+ * Auth admin
+ * Thêm Nguoi dung (giới thiệu cơ chế token)
+ * HOOKS
+
+ ============== Buoi 12 ==============
+ * Material UI
+    npm install @material-ui/core
+ * On tap
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+npm install redux-thunk --save
+
+import { createStore, applyMiddleware, compose } from "redux";
+import thunk from "redux-thunk";
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(
+  rootReducer,
+  composeEnhancers(applyMiddleware(thunk))
+);
