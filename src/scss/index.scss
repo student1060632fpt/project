@@ -1,3 +1,13 @@
-@import "./about";
-@import "./home";
-@import "./listmoive";
+//main css
+@import "./variables";
+@import "./mixin";
+@import "./main";
+
+//components
+@import "./navbar";
+
+//home templates
+@import "./home/about";
+@import "./home/listmoive";
+
+//admin templates

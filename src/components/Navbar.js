@@ -7,7 +7,7 @@ export default class Navbar extends Component {
       <nav className="navbar navbar-expand-md bg-dark navbar-dark">
         {/* Brand */}
         <a className="navbar-brand" href="#home">
-          Navbar
+          <img src="./images/logo.png" alt="" /> Cinemax
         </a>
         {/* Toggler/collapsibe Button */}
         <button
