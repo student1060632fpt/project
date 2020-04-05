@@ -5,7 +5,7 @@ export default class AdminQuanLyLichChieu extends Component {
         return (
             <div>
                 Admin
-               <input type="text" name="ngaylam" id="datepicker" classname="form-control" placeholder="Ngày làm" />
+               <input type="text" name="ngaylam" id="datepicker" className="form-control" placeholder="Ngày làm" />
             </div>
         )
     }
