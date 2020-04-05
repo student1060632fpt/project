@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   title: {
-    fontSize: 100,
+    fontSize: 55,
   },
 }));
 
