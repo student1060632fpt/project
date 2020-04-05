@@ -2,12 +2,11 @@ import Home from "./pages/home/Home";
 import About from "./pages/home/About";
 import ListMovie from "./pages/home/ListMovie";
 import Detail from "./pages/home/Detail";
-import HOC from "./HOC";
 
 import Dashboard from "./pages/admin/Dashboard";
 import ThemNguoiDung from "./pages/admin/ThemNguoiDung";
-import HOOKS from "./HOOKS";
 import Material from "./pages/home/Material";
+import AdminQuanLyLichChieu from "./pages/admin/AdminQuanLyLichChieu";
 
 const routesHome = [
   {
@@ -36,16 +35,6 @@ const routesHome = [
     component: Detail
   },
   {
-    path: "/hoc",
-    exact: false,
-    component: HOC
-  },
-  {
-    path: "/hooks",
-    exact: false,
-    component: HOOKS
-  },
-  {
     path: "/material",
     exact: false,
     component: Material
@@ -62,6 +51,11 @@ const routesAdmin = [
     path: "/admin/them-nguoi-dung",
     exact: false,
     component: ThemNguoiDung
+  },
+  {
+    path: "/admin/admin-quan-ly-lich-chieu",
+    exact: false,
+    component: AdminQuanLyLichChieu
   }
 ];
 
