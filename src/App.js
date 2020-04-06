@@ -40,25 +40,23 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div>
-        <Switch>
-          {showMenuHome(routesHome)}
-          {showMenuAdmin(routesAdmin)}
+      <Switch>
+        {showMenuHome(routesHome)}
+        {showMenuAdmin(routesAdmin)}
 
-          {/* Trang Admin - Login vào quản tri */}
-          <Route path="/admin" component={Admin} />
+        {/* Trang Admin - Login vào quản tri */}
+        <Route path="/admin" component={Admin} />
 
-          {/* Trang Home */}
-          {/* <Route exact path="/" component={Home} /> */}
-          {/* <Route path="/home" component={Home} /> */}
-          {/* Trang About - localhost:3000/about */}
-          {/* <Route path="/about" component={About} /> */}
-          {/* Trang ListMovie - localhost:3000/list-movie */}
-          {/* <Route path="/list-movie" component={ListMovie} /> */}
-          {/* Link không xác định - để cuối cùng các trang */}
-          <Route path="" component={PageNotFound} />
-        </Switch>
-      </div>
+        {/* Trang Home */}
+        {/* <Route exact path="/" component={Home} /> */}
+        {/* <Route path="/home" component={Home} /> */}
+        {/* Trang About - localhost:3000/about */}
+        {/* <Route path="/about" component={About} /> */}
+        {/* Trang ListMovie - localhost:3000/list-movie */}
+        {/* <Route path="/list-movie" component={ListMovie} /> */}
+        {/* Link không xác định - để cuối cùng các trang */}
+        <Route path="" component={PageNotFound} />
+      </Switch>
     </BrowserRouter>
   );
 }

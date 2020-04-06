@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './../../js/datepicker';
+// import './../../js/datepicker';
 
 export default class AdminQuanLyLichChieu extends Component {
     render() {

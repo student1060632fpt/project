@@ -1,6 +1,4 @@
 // Hien thi button
-console.log("FUCK");
-/*
 $( function() {
     $( "#datepicker" ).datepicker({
         showOn: "button",
@@ -24,4 +22,3 @@ $( document ).ready(function() {
     d.getFullYear();
     $('#datepicker').val(output);   
 });
-*/

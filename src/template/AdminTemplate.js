@@ -1,12 +1,13 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import { Redirect } from "react-router-dom";
+import NavbarAdmin from "../components/admin/NavbarAdmin";
 
 // Component AdminLayout
 const AdminLayout = props => {
   return (
-    <div>
-      <div>NAVBAR ADMIN</div>
+    <div className="wrapper">
+      <NavbarAdmin/>
       {props.children}
     </div>
   );
