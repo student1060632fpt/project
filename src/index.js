@@ -8,7 +8,7 @@ import "jquery/dist/jquery.min.js";
 import "popper.js/dist/umd/popper.min.js";
 import "bootstrap/dist/js/bootstrap.min.js";
 import "./scss/index.scss";
-
+// import './js/datepicker';
 
 import { createStore, applyMiddleware, compose } from "redux";
 import { Provider } from "react-redux";

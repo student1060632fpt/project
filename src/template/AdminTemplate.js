@@ -7,8 +7,12 @@ import NavbarAdmin from "../components/admin/NavbarAdmin";
 const AdminLayout = props => {
   return (
     <div className="wrapper">
-      <NavbarAdmin/>
-      {props.children}
+      <NavbarAdmin />
+      <div id="content">
+
+        {props.children}
+
+      </div>
     </div>
   );
 };

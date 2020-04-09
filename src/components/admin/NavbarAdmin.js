@@ -1,12 +1,24 @@
 import React, { Component } from "react";
+import { render } from "react-dom";
+import $ from "jquery";
 
 export default class NavbarAdmin extends Component {
+  componentDidMount(){
+    $('#sidebarCollapse').on('click', function () {
+      $('#sidebar').toggleClass('active');
+    });
+  }
   render() {
     return (
       <nav id="sidebar">
         <div className="sidebar-header">
           <h3>Bootstrap Sidebar</h3>
           <strong>BS</strong>
+          
+          <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn">
+            <i class="glyphicon glyphicon-align-left"></i>
+            <span>Toggle Sidebar</span>
+          </button>
         </div>
         <ul className="list-unstyled components">
           <li className="active">
