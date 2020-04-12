@@ -1,1 +1,37 @@
+$nav-padding-left: 1.7rem;
 
+.navbar {
+    transition: all 0.4s ease;
+    padding: $nav-padding-left 3rem;
+    border-bottom:1px solid rgba(255, 255, 255, 0.102);
+    font : {
+        weight: bold;
+        size: 16px;
+    }
+    text-transform: uppercase;
+    li{
+        position: relative;
+        .nav-link{
+            &::before{
+                position: absolute;
+                width: 90%;
+                height: 2px;
+                background: #31d7a9;
+                top: $nav-padding-left*2.6;
+                content: "";
+                transform: scaleX(0);
+                transition: all ease 0.3s;
+                transform-origin: left;
+            }
+            &:hover::before, &.active::before{
+                transform: scaleX(1);
+            }
+        }
+    }
+}
+
+
+.navbar-home{
+    background-color: $color-navbar;
+    color: $color-text;
+}

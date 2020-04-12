@@ -2,6 +2,8 @@ import Home from "./pages/home/Home";
 import About from "./pages/home/About";
 import ListMovie from "./pages/home/ListMovie";
 import Detail from "./pages/home/Detail";
+import DangKy from "./pages/home/DangKy";
+import DangNhap from "./pages/home/DangNhap";
 
 import Dashboard from "./pages/admin/Dashboard";
 import ThemNguoiDung from "./pages/admin/ThemNguoiDung";
@@ -38,6 +40,16 @@ const routesHome = [
     path: "/material",
     exact: false,
     component: Material
+  },
+  {
+    path: "/dang-ky",
+    exact: false,
+    component: DangKy
+  },
+  {
+    path: "/dang-nhap",
+    exact: false,
+    component: DangNhap
   }
 ];
 

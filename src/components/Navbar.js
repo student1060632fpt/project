@@ -1,14 +1,30 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import $ from "jquery";
 
 export default class Navbar extends Component {
+  componentDidMount(){
+    $(window).scroll(function() {
+      if ($(document).scrollTop() > 100) {
+        $('.navbar').addClass('navbar-home');
+      } else {
+        $('.navbar').removeClass('navbar-home');
+      }
+    });
+  }
+
   render() {
     return (
-      <nav className="navbar navbar-expand-md bg-dark navbar-dark">
+      <nav className="navbar navbar-expand-md  fixed-top">
         {/* Brand */}
-        <a className="navbar-brand" href="#home">
+        <NavLink
+          exact
+          activeClassName="active"
+          className="navbar-brand"
+          to="/"
+        >
           <img src="./images/logo.png" alt="" /> Cinemax
-        </a>
+        </NavLink>
         {/* Toggler/collapsibe Button */}
         <button
           className="navbar-toggler"
@@ -19,7 +35,10 @@ export default class Navbar extends Component {
           <span className="navbar-toggler-icon" />
         </button>
         {/* Navbar links */}
-        <div className="collapse navbar-collapse" id="collapsibleNavbar">
+        <div
+          className="collapse navbar-collapse"
+          id="collapsibleNavbar"
+        >
           <ul className="navbar-nav">
             <li className="nav-item">
               <NavLink
@@ -51,26 +70,30 @@ export default class Navbar extends Component {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeClassName="active" className="nav-link" to="/hoc">
-                HOC
-              </NavLink>
-            </li>
-            <li className="nav-item">
-              <NavLink
-                activeClassName="active"
-                className="nav-link"
-                to="/hooks"
-              >
-                HOOKS
-              </NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink
                 activeClassName="active"
                 className="nav-link"
                 to="/material"
               >
                 Material
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                to="/dang-ky"
+              >
+                Đăng Ký
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                activeClassName="active"
+                className="nav-link"
+                to="/dang-nhap"
+              >
+                Đăng nhập
               </NavLink>
             </li>
           </ul>
