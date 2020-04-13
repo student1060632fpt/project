@@ -6,3 +6,11 @@ a, a:hover, a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
+
+.button-main{
+    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+    padding: 4px 25px;
+    font-weight: 600;
+    border-radius: 25px;
+    display: inline-block;
+}
