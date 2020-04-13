@@ -4,11 +4,12 @@ $nav-padding-left: 1.7rem;
     transition: all 0.4s ease;
     padding: $nav-padding-left 3rem;
     border-bottom:1px solid rgba(255, 255, 255, 0.102);
+    text-transform: uppercase;
+    color: $color-text;
     font : {
         weight: bold;
         size: 16px;
     }
-    text-transform: uppercase;
     li{
         position: relative;
         .nav-link{
@@ -33,5 +34,4 @@ $nav-padding-left: 1.7rem;
 
 .navbar-home{
     background-color: $color-navbar;
-    color: $color-text;
 }

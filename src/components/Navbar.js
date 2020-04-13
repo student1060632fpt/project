@@ -91,12 +91,12 @@ export default class Navbar extends Component {
               <li className="nav-item">
                 <NavLink
                   activeClassName="active"
-                  className="nav-link form-inline"
+                  className="form-inline btn button-main"
                   to="/dang-nhap"
                 >
-                  <button className="btn button-main">
+                  {/* <button className=""> */}
                     Đăng nhập
-                  </button>
+                  {/* </button> */}
               </NavLink>
               </li>
             </ul>

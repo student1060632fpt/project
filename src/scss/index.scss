@@ -4,10 +4,11 @@
 @import "./main";
 
 //components
-@import "./navbar";
+@import "./home/navbar";
 @import "./admin/navbarAdmin";
 
 //home templates
+@import "./home/home";
 @import "./home/about";
 @import "./home/listmoive";
 
