@@ -29,10 +29,12 @@ function About() {
   };
 
   return (
-    <div className="container">
-      <h3>About</h3>
-      <div className="row">{renderHTML()}</div>
-    </div>
+    <>
+      <div className="container">
+        <h3>About</h3>
+        <div className="row">{renderHTML()}</div>
+      </div>
+    </>
   );
 }
 

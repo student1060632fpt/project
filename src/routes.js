@@ -1,9 +1,9 @@
-import Home from "./pages/home/Home";
-import About from "./pages/home/About";
-import ListMovie from "./pages/home/ListMovie";
-import Detail from "./pages/home/Detail";
-import DangKy from "./pages/home/DangKy";
-import DangNhap from "./pages/home/DangNhap";
+import Home from "./pages/user/Home";
+import About from "./pages/user/About";
+import ListMovie from "./pages/user/ListMovie";
+import Detail from "./pages/user/Detail";
+import DangKy from "./pages/user/DangKy";
+import DangNhap from "./pages/user/DangNhap";
 
 import Dashboard from "./pages/admin/Dashboard";
 import ThemNguoiDung from "./pages/admin/ThemNguoiDung";
