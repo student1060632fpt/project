@@ -4,10 +4,10 @@ import ListMovie from "./pages/user/ListMovie";
 import Detail from "./pages/user/Detail";
 import DangKy from "./pages/user/DangKy";
 import DangNhap from "./pages/user/DangNhap";
+import Material from "./pages/user/Material";
 
 import Dashboard from "./pages/admin/Dashboard";
 import ThemNguoiDung from "./pages/admin/ThemNguoiDung";
-import Material from "./pages/home/Material";
 import AdminQuanLyLichChieu from "./pages/admin/AdminQuanLyLichChieu";
 
 const routesHome = [

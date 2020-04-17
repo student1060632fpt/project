@@ -67,8 +67,8 @@ export default class Banner extends Component {
                 <section className="banner-section">
                     <div className="banner-background"></div>
                     <div className="container">
-                        <div className="banner-content">
-                            <h1 className="title"><span className="d-block">book your</span> tickets <span
+                        <div className="banner-content text-center">
+                            <h1 className="title text-uppercase"><span className="d-block">book your</span> tickets <span
                                 class="txt-rotate"
                                 data-period="1000"
                                 data-rotate='[ "secure", "quickly", "safety"]'></span>

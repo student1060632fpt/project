@@ -67,7 +67,6 @@ export default class Navbar extends Component {
                   to="/list-movie"
                 >
                   ListMovie
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
                 </NavLink>
               </li>
               <li className="nav-item">

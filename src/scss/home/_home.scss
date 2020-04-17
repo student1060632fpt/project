@@ -1,8 +1,14 @@
+// banner component 
 .banner-section {
     position: relative;
-    padding: 250px 0 316px;
+    padding: 250px 0 350px;
     &::before {
-        background-color: rgba(0, 18, 50, 0.4);
+        background-color: rgba(0, 18, 50, 0.603);
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
     }
     .banner-background {
         position: absolute;
@@ -23,13 +29,9 @@
     .banner-content {
         position: relative;
         z-index: 3;
-        margin: 0 auto;
-        text-align: center;
-        max-width: 840px;
         .title {
             font-size: 80px;
             line-height: 1.1;
-            text-transform: uppercase;
             margin-bottom: 18px;
             font-weight: 800;
             .d-block{
@@ -42,6 +44,24 @@
         }
         .txt-rotate{
             color: $color-light;
+        }
+    }
+}
+
+// ticketsearch component 
+.ticket-search-section{
+    .search-tab{
+        border-radius: $border-radius-big;
+        z-index: 3;
+        transform: translateY(-50%);
+        position: relative;
+        background-image: url('./../../asset/img/ticket-bg01.jpg');
+        .category{
+            color: $color-light;
+            font-weight: 600;
+        }
+        h3{
+            font-size: 28px;
         }
     }
 }
