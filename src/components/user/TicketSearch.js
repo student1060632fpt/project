@@ -1,22 +1,73 @@
 import React, { Component } from 'react';
 import Date from './../../asset/img/date.png';
 import Cinema from './../../asset/img/cinema.png';
+import $ from "jquery";
+
 
 export default class TicketSearch extends Component {
+    componentDidMount() {
+        $('select').each(function () {
+            var $this = $(this), numberOfOptions = $(this).children('option').length;
+
+            $this.addClass('select-hidden');
+            $this.wrap('<div class="select"></div>');
+            $this.after('<div class="select-styled"></div>');
+
+            var $styledSelect = $this.next('div.select-styled');
+            $styledSelect.text($this.children('option').eq(0).text());
+
+            var $list = $('<ul />', {
+                'class': 'select-options'
+            }).insertAfter($styledSelect);
+
+            for (var i = 0; i < numberOfOptions; i++) {
+                $('<li />', {
+                    text: $this.children('option').eq(i).text(),
+                    rel: $this.children('option').eq(i).val()
+                }).appendTo($list);
+            }
+
+            var $listItems = $list.children('li');
+
+            $styledSelect.click(function (e) {
+                e.stopPropagation();
+                $('div.select-styled.active').not(this).each(function () {
+                    $(this).removeClass('active').next('ul.select-options').hide();
+                });
+                $(this).toggleClass('active').next('ul.select-options').toggle();
+            });
+
+            $listItems.click(function (e) {
+                e.stopPropagation();
+                $styledSelect.text($(this).text()).removeClass('active');
+                $this.val($(this).attr('rel'));
+                $list.hide();
+                //console.log($this.val());
+            });
+
+            $(document).click(function () {
+                $styledSelect.removeClass('active');
+                $list.hide();
+            });
+
+        });
+    }
     render() {
         return (
             <section className="container ticket-search-section">
                 <div className="search-tab text-center">
-                    <p className="category">Welcome to Cinemax!</p>
-                    <h3 className="text-uppercase">What are you looking for?</h3>
+                    <div className="title">
+                        <p className="category">Welcome to Cinemax!</p>
+                        <h3 className="text-uppercase">What are you looking for?</h3>
+                    </div>
                     <form className="form-inline">
-                        <div className="form-group col-md-6">
-                            <input type="text" placeholder="Search for movie" />
+                        <div className="form-group col-lg-4 col-md-12">
+                            <input type="text" id="search" placeholder="Search for movie" />
                             <button className="btn btn-search" x type="button">
                                 <i class="fa fa-search"></i>
                             </button>
                         </div>
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-lg-4 col-md-6">
                             <div className="thumb">
                                 <img src={Date} className="" alt="date" />
                             </div>
@@ -28,7 +79,7 @@ export default class TicketSearch extends Component {
                                 <option value="26-12-19">26/10/2020</option>
                             </select>
                         </div>
-                        <div className="form-group col-md-3">
+                        <div className="form-group col-lg-4 col-md-6">
                             <div className="thumb">
                                 <img src={Cinema} className="" alt="cinema" />
                             </div>
