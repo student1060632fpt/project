@@ -130,76 +130,110 @@
                 color: $color-light !important;
             }
         }
+        // copy code select of ticket search
+        .select-hidden {
+            display: none;
+            visibility: hidden;
+            padding-right: 10px;
+        }
+
+        .select {
+            cursor: pointer;
+            display: inline-block;
+            position: relative;
+            color: #fff;
+            width: 12vw;
+            height: 40px;
+        }
+
+        .select-styled {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 8px 15px;
+            transition: all 0.2s ease-in;
+            &:after {
+                content: "";
+                width: 0;
+                height: 0;
+                border: 7px solid transparent;
+                border-color: #fff transparent transparent transparent;
+                position: absolute;
+                top: 16px;
+                right: 10px;
+                transition: all 0.5s ease;
+            }
+        }
+        .select-styled:active:after,
+        .select-styled.active:after {
+            top: 9px;
+            border-color: transparent transparent #fff transparent;
+        }
+
+        .select-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            left: 0;
+            z-index: 999;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            background-color: $color-navbar;
+            li {
+                margin: 0;
+                padding: 12px 0;
+                text-indent: 15px;
+                border-top: 1px solid rgba(255, 255, 255, 0.15);
+                transition: all 0.15s ease-in;
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.15);
+                }
+            }
+            li[rel="hide"] {
+                display: none;
+                transition: all 0.15s ease-in;
+            }
+        }
     }
 }
 
-// copy code
-.select-hidden {
-    display: none;
-    visibility: hidden;
-    padding-right: 10px;
+#carousel-movie {
+    h3{
+        font-size: 3rem;
+    }
+    p{
+        font-size: 1.2rem;
+    }
+    .btn {
+        border-radius: 25px;
+        padding: 7px 25px;
+        color: white;
+        text-transform: uppercase;
+        border: 1px solid #11326f;
+        &:hover{
+            @include button-hover;
+        }
+        &:active {
+            @include button-beauty;
+        }
+    }
+    .btn.active{
+        @include button-beauty;
+    }
 }
 
-.select {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    color: #fff;
-    width: 12vw;
-    height: 40px;
+
+.card{
+    background-color: $color-card;
+    .card-title{
+        transition: all .2s;
+        &:hover{
+        color: $color-light;
+    }
 }
 
-.select-styled {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    padding: 8px 15px;
-    transition: all 0.2s ease-in;
-}
-.select-styled:after {
-    content: "";
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-color: #fff transparent transparent transparent;
-    position: absolute;
-    top: 16px;
-    right: 10px;
-    transition: all .5s ease;
-}
-.select-styled:active:after,
-.select-styled.active:after {
-    top: 9px;
-    border-color: transparent transparent #fff transparent;
-}
-
-.select-options {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    left: 0;
-    z-index: 999;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    background-color: $color-navbar;
-}
-.select-options li {
-    margin: 0;
-    padding: 12px 0;
-    text-indent: 15px;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-    -moz-transition: all 0.15s ease-in;
-    -o-transition: all 0.15s ease-in;
-    -webkit-transition: all 0.15s ease-in;
-    transition: all 0.15s ease-in;
-}
-.select-options li:hover {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-.select-options li[rel="hide"] {
-    display: none;
 }
