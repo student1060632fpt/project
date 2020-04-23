@@ -202,10 +202,10 @@
 }
 
 #carousel-movie {
-    h3{
+    h3 {
         font-size: 3rem;
     }
-    p{
+    p {
         font-size: 1.2rem;
     }
     .btn {
@@ -214,26 +214,27 @@
         color: white;
         text-transform: uppercase;
         border: 1px solid #11326f;
-        &:hover{
+        &:hover {
             @include button-hover;
         }
         &:active {
             @include button-beauty;
         }
     }
-    .btn.active{
+    .btn.active {
         @include button-beauty;
     }
 }
 
-
-.card{
+.card {
     background-color: $color-card;
-    .card-title{
-        transition: all .2s;
-        &:hover{
-        color: $color-light;
+    .card-title {
+        transition: all 0.2s;
+        &:hover {
+            color: $color-light;
+        }
     }
-}
-
+    hr {
+        border: 1px dashed #11326f;
+    }
 }
