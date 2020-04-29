@@ -28,7 +28,7 @@ export default class Movie extends Component {
     return (
       <div className="col-sm-3">
         <div className="card">
-          <Link to={`/detail/${movie.maPhim}`}>
+          <Link className="link-img" to={`/detail/${movie.maPhim}`}>
             <img className="card-img-top" to={`/detail/${movie.maPhim}`} src={movie.hinhAnh} alt={movie.tenPhim} />
           </Link>
           <div className="card-body">
