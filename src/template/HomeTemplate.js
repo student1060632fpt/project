@@ -1,6 +1,9 @@
 import React, { Fragment } from "react";
 import { Route } from "react-router-dom";
+
+// the main 
 import Navbar from "./../components/Navbar";
+import Footer from "../components/Footer";
 
 // Component HomeLayout
 const HomeLayout = props => {
@@ -8,6 +11,7 @@ const HomeLayout = props => {
     <Fragment>
       <Navbar />
       {props.children}
+      <Footer/>
     </Fragment>
   );
 };

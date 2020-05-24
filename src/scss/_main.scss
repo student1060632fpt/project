@@ -12,7 +12,9 @@ a:focus {
     transition: all 0.3s;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3 {
     font-weight: 700;
     margin: 0;
     line-height: 1.3;
@@ -32,7 +34,6 @@ h1, h2, h3, h4, h5, h6 {
         box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
     }
 }
-
 
 //scoll bar
 
@@ -55,6 +56,18 @@ h1, h2, h3, h4, h5, h6 {
 /**
  * Remove the default vertical scrollbar in IE 10+.
  */
- textarea {
+textarea {
     overflow: auto;
-  }
+}
+
+.category {
+    color: $color-light;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+h3 {
+    font-size: 1.9rem;
+}
+.light-color {
+    color: $color-light;
+}

@@ -1,8 +1,8 @@
-$nav-padding-left: 1.7rem;
+$nav-padding-left: 32px;
 
 .navbar {
     transition: all 0.4s ease;
-    padding: $nav-padding-left 3rem;
+    padding: 32px 40px;
     border-bottom:1px solid rgba(255, 255, 255, 0.102);
     text-transform: uppercase;
     color: $color-text;
@@ -18,7 +18,7 @@ $nav-padding-left: 1.7rem;
                 width: 90%;
                 height: 2px;
                 background: #31d7a9;
-                top: $nav-padding-left*2.6;
+                top: $nav-padding-left*2.4;
                 content: "";
                 transform: scaleX(0);
                 transition: all ease 0.3s;

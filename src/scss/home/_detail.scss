@@ -1,0 +1,124 @@
+.banner-detail-img {
+    width: 100%;
+    border-radius: 10px;
+}
+.banner-detail::before {
+    @include before-background-color;
+    background: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from(rgba(0, 18, 50, 0.134891)),
+        color-stop(90%, #001232)
+    );
+    background: linear-gradient(180deg, rgba(0, 18, 50, 0.134891) 0%, #001232 90%);
+    background: -webkit-linear-gradient(180deg, rgba(0, 18, 50, 0.134891) 0%, #001232 90%);
+}
+
+.detail {
+    margin-top: -30vh;
+    color: $color-text;
+    .img-film {
+        position: relative;
+        img {
+            position: absolute;
+            width: 90%;
+            object-fit: cover;
+            z-index: 1;
+            border: 1px solid #17305f;
+            border-radius: 5px;
+        }
+    }
+    .film-resume {
+        color: #9aace5;
+        .film-div-tag {
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        .film-tag {
+            padding: 10px 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(163, 177, 198, 0.2);
+            font-size: 13px;
+            transition: all 0.2s ease;
+            &:hover {
+                box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
+            }
+        }
+    }
+}
+.rate {
+    background-color: $color-navbar;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    height: 100%;
+    position: relative;
+    .tomatoes {
+        img {
+            width: 35px;
+            margin-right: 10px;
+        }
+        span {
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    }
+    fieldset.rating {
+        margin: 0;
+        padding: 0;
+        border: none;
+        float: left;
+    }
+    .rating > input {
+        display: none;
+    }
+    .rating > label:before {
+        margin: 4px;
+        font-size: 1.25em;
+        font-family: FontAwesome;
+        display: inline-block;
+        content: "\f004";
+    }
+    .rating > label {
+        color: #ddd;
+        float: right;
+    }
+    /***** CSS Magic to Highlight Stars on Hover *****/
+
+    .rating > input:checked ~ label, /* show gold star when clicked */
+    .rating:not(:checked) > label:hover, /* hover current star */
+    .rating:not(:checked) > label:hover ~ label {
+        color: red;
+    } /* hover previous stars in list */
+    
+    .film-button{
+        padding-top: 20px;
+    }
+}
+.btn-normal {
+    border-radius: 25px;
+    padding: 7px 25px;
+    color: white;
+    border: 1px solid #11326f;
+    background-color: transparent;
+    transition: all 0.2s;
+    outline: none;
+    &:hover {
+        @include button-hover;
+    }
+    &:active {
+        @include button-beauty;
+    }
+}
+.modal-trailer {
+    background-color: $color-navbar !important;
+    .modal-header {
+        border-bottom: 1px solid rgba(163, 177, 198, 0.2) !important;
+        .modal-title{
+            font-size: 1rem;
+        }
+        .close{
+            color: white;
+        }
+    }
+}

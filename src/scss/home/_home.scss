@@ -4,11 +4,7 @@
     padding: 250px 0 350px;
     &::before {
         background-color: rgba(0, 18, 50, 0.603);
-        position: absolute;
-        top: 0;
-        left: 0;
-        bottom: 0;
-        right: 0;
+        @include before-background-color;
     }
     .banner-background {
         position: absolute;
@@ -60,25 +56,12 @@
         &::before {
             background-image: -webkit-linear-gradient(0deg, #0f5ae0 0%, #7400ba 100%);
             opacity: 0.8;
-            position: absolute;
-            content: "";
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+            @include before-background-color;
             z-index: 0;
             border-radius: $border-radius-big;
         }
         .title {
             position: relative;
-            .category {
-                color: $color-light;
-                font-weight: 600;
-                font-size: 1.2rem;
-            }
-            h3 {
-                font-size: 1.9rem;
-            }
         }
         .form-inline {
             padding: 30px;
@@ -251,6 +234,107 @@
         transition: all 0.3s;
         &:hover {
             transform: scale(1.2);
+        }
+    }
+}
+
+.slick-slide img {
+    display: inline-block;
+}
+
+.slick-card {
+    margin: 10px;
+}
+
+footer{
+    margin-top: 100px;
+}
+.footer-section {
+    position: relative;
+    &::before {
+        position: absolute;
+        top: 120px;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        mask-image: url(./../../asset/img/footer-shape.png);
+        mask-position: top center;
+        mask-repeat: no-repeat;
+        mask-size: cover;
+        // background: #0a1e5e;
+    }
+    .footer-subcribe-section {
+        .subcribe-tab {
+            border-radius: $border-radius-big;
+            z-index: 3;
+            // transform: translateY(-50%);
+            position: relative;
+            background-image: url("./../../asset/img/newslater-bg01.jpg");
+            padding: 40px;
+
+            &::before {
+                background-image: -webkit-linear-gradient(0deg, #7400ba 0%, #0f5ae0 100%);
+                opacity: 0.8;
+                @include before-background-color;
+                z-index: 0;
+                border-radius: $border-radius-big;
+            }
+            .subcribe-text {
+                position: relative;
+                z-index: 3;
+                form {
+                    justify-content: center;
+                    .form-control {
+                        background-color: transparent;
+                        width: 30vw;
+                        border-radius: 25px;
+                        padding: 24px;
+                        outline: none;
+                        box-shadow: 0px 3px 10px 0px rgba(0, 0, 0, 0);
+                    }
+                    .btn {
+                        margin-left: -50px;
+                        padding: 13px 25px;
+                        border-radius: 54px;
+                        background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+                        border: 1px solid white;
+                        border-left: transparent;
+                    }
+                }
+            }
+        }
+    }
+    .footer-info{
+        margin-top: 100px;
+        .footer-info-top{
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+        }
+        .footer-icon{
+            i{
+                border: 1px solid rgba(255, 255, 255, 0.1);
+                padding: 14px;
+                margin-left: 10px;
+                width: 45px;
+                height: 45px;
+                border-radius: 50%;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center;
+                transition: all .2s;
+                &:hover{
+                    background-color: $color-light;
+                }
+            }
+        }
+        .footer-info-bottom{
+            margin-bottom: 25px;
+        }
+        .footer-small-sitemap{
+            a{
+                margin-left: 30px;
+            }
         }
     }
 }

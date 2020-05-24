@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import Movie from "../../components/Movie";
 import { connect } from "react-redux";
 import * as action from "../../redux/action";
+
+// import $ from "jquery";
+// import OwlCarousel from 'react-owl-carousel';
 // import 'owl.carousel/dist/assets/owl.carousel.css';
-// import 'owl.carousel';
+// import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 class ListMovie extends Component {
