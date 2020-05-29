@@ -25,44 +25,44 @@ export default class Footer extends Component {
                     <div className="container footer-info">
                         <div className="row footer-info-top mb-3">
                             <span className="col-md-6 footer-logo">
-                                <a href="#">
+                                <a href="">
                                     <img src={Logo} className="img-fluid" alt="" />CINEMAX</a>
                             </span>
                             <span className="col-md-6 footer-icon text-right">
-                                <a href="#">
+                                <a href="">
                                     <i className="fa fa-facebook" aria-hidden="true" />
                                 </a>
-                                <a href="#">
+                                <a href="">
                                     <i className="fa fa-twitter" aria-hidden="true" />
                                 </a>
-                                <a href="#">
+                                <a href="">
                                     <i className="fa fa-pinterest-p" aria-hidden="true" />
                                 </a>
-                                <a href="#">
+                                <a href="">
                                     <i className="fa fa-google" aria-hidden="true" />
                                 </a>
-                                <a href="#">
+                                <a href="">
                                     <i className="fa fa-instagram" aria-hidden="true" />
                                 </a>
 
                             </span>
                         </div>
                         <div className="row mt-5 footer-info-bottom">
-                            <p className="copyright col-md-6">Copyright © 2020. All Rights Reserved By <a href="#"><span className="light-color">Cinemax</span></a></p>
+                            <p className="copyright col-md-6">Copyright © 2020. All Rights Reserved By <a href=""><span className="light-color">Cinemax</span></a></p>
                             <span className="footer-small-sitemap col-md-6 text-right">
-                                <a href="#">
+                                <a href="">
                                     About
                                     </a>
-                                <a href="#">
+                                <a href="">
                                     Terms Of Use
                                     </a>
-                                <a href="#">
+                                <a href="">
                                     Privacy Policy
                                     </a>
-                                <a href="#">
+                                <a href="">
                                     FAQ
                                     </a>
-                                <a href="#">
+                                <a href="">
                                     Feedback
                                     </a>
                             </span>

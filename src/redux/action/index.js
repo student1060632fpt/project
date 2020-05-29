@@ -77,6 +77,37 @@ export const actDetailMovie = id => {
   };
 };
 
+export const actTheater = maRap => {
+  return dispatch => {
+    Axios({
+      method: "GET",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP01`
+    })
+      .then(rs => {
+        // console.log(rs.data);
+        dispatch(actGetTheater(rs.data));
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+}
+
+export const actCinema = () => {
+  return dispatch => {
+    Axios({
+      method: "GET",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
+    })
+    .then(rs => {
+      dispatch(actGetCinema(rs.data))
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+
 export const actGetListMovie = listMovie => {
   return {
     type: ActionType.GET_LIST_MOVIE,
@@ -90,3 +121,17 @@ export const actGetDetailMovie = detailMovie => {
     data: detailMovie
   };
 };
+
+export const actGetTheater = theater => {
+  return {
+    type: ActionType.GET_THEATER,
+    data: theater
+  }
+}
+
+export const actGetCinema = cinema => {
+  return {
+    type: ActionType.GET_CINEMA,
+    data: cinema
+  }
+}

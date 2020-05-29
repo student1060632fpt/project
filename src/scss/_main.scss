@@ -4,6 +4,10 @@ body {
     color: $color-text;
 }
 
+button{
+    outline: none !important;
+}
+
 a,
 a:hover,
 a:focus {

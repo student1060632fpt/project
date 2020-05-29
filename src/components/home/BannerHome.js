@@ -69,7 +69,7 @@ export default class Banner extends Component {
                     <div className="container">
                         <div className="banner-content text-center">
                             <h1 className="title text-uppercase"><span className="d-block">book your</span> tickets <span
-                                class="txt-rotate"
+                                className="txt-rotate"
                                 data-period="1000"
                                 data-rotate='[ "secure", "quickly", "safety"]'></span>
                             </h1>

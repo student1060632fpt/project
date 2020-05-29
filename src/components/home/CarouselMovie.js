@@ -10,8 +10,8 @@ class CarouselMovie extends Component {
     componentDidMount() {
         document.title = "List Movie";
         this.props.getListMovie();
-      }
-    
+    }
+
     render() {
         const renderSlider = () => {
             return this.props.listMovie.map(movie => {
@@ -61,17 +61,18 @@ class CarouselMovie extends Component {
             </p>
                     </div>
                     <div className="col-lg-6 align-self-center">
-                        <ul class="nav float-md-right">
-                            <li class="">
-                                <a class="btn mr-3 nav-link active" data-toggle="tab" href="#home">Now showing</a>
+                        <ul className="nav float-md-right">
+                            <li >
+                                <a className="btn mr-3 nav-link active" data-toggle="tab" href="#home">Now showing</a>
                             </li>
-                            <li class="">
-                                <a class="btn mr-3 nav-link" data-toggle="tab" href="#menu1">Comming soon</a>
+                            <li >
+                                <a className="btn mr-3 nav-link" data-toggle="tab" href="#menu1">Comming soon</a>
                             </li>
-                            <li class="">
-                                <a class="btn nav-link" data-toggle="tab" href="#menu2">Popular</a>
+                            <li >
+                                <a className="btn nav-link" data-toggle="tab" href="#menu2">Popular</a>
                             </li>
                         </ul>
+
                     </div>
                 </div>
                 {/* ở đây từng là div row  */}

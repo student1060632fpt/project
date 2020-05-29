@@ -63,11 +63,11 @@ export default class TicketSearch extends Component {
                     <form className="form-inline">
                         <div className="form-group col-lg-4 col-md-12">
                             <input type="text" id="search" placeholder="Search for movie" />
-                            <button className="btn btn-search" x type="button">
-                                <i class="fa fa-search"></i>
+                            <button className="btn btn-search" type="button">
+                                <i className="fa fa-search"></i>
                             </button>
                         </div>
-                        <div className="form-group col-lg-4 col-md-6">
+                        <div className="form-group col-lg-4 col-md-6 my-select">
                             <div className="thumb">
                                 <img src={Date} className="" alt="date" />
                             </div>
@@ -79,7 +79,7 @@ export default class TicketSearch extends Component {
                                 <option value="26-12-19">26/10/2020</option>
                             </select>
                         </div>
-                        <div className="form-group col-lg-4 col-md-6">
+                        <div className="form-group col-lg-4 col-md-6 my-select">
                             <div className="thumb">
                                 <img src={Cinema} className="" alt="cinema" />
                             </div>

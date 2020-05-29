@@ -113,77 +113,79 @@
                 color: $color-light !important;
             }
         }
-        // copy code select of ticket search
-        .select-hidden {
-            display: none;
-            visibility: hidden;
-            padding-right: 10px;
-        }
-
-        .select {
-            cursor: pointer;
-            display: inline-block;
-            position: relative;
-            color: #fff;
-            width: 12vw;
-            height: 40px;
-        }
-
-        .select-styled {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            padding: 8px 15px;
-            transition: all 0.2s ease-in;
-            &:after {
-                content: "";
-                width: 0;
-                height: 0;
-                border: 7px solid transparent;
-                border-color: #fff transparent transparent transparent;
-                position: absolute;
-                top: 16px;
-                right: 10px;
-                transition: all 0.5s ease;
-            }
-        }
-        .select-styled:active:after,
-        .select-styled.active:after {
-            top: 9px;
-            border-color: transparent transparent #fff transparent;
-        }
-
-        .select-options {
-            display: none;
-            position: absolute;
-            top: 100%;
-            right: 0;
-            left: 0;
-            z-index: 999;
-            margin: 0;
-            padding: 0;
-            list-style: none;
-            background-color: $color-navbar;
-            li {
-                margin: 0;
-                padding: 12px 0;
-                text-indent: 15px;
-                border-top: 1px solid rgba(255, 255, 255, 0.15);
-                transition: all 0.15s ease-in;
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.15);
-                }
-            }
-            li[rel="hide"] {
-                display: none;
-                transition: all 0.15s ease-in;
-            }
-        }
     }
 }
 
+// copy code select of ticket search
+.my-select {
+    .select-hidden {
+        display: none;
+        visibility: hidden;
+        padding-right: 10px;
+    }
+
+    .select {
+        cursor: pointer;
+        display: inline-block;
+        position: relative;
+        color: #fff;
+        width: 12vw;
+        height: 40px;
+    }
+
+    .select-styled {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 8px 15px;
+        transition: all 0.2s ease-in;
+        &:after {
+            content: "";
+            width: 0;
+            height: 0;
+            border: 7px solid transparent;
+            border-color: #fff transparent transparent transparent;
+            position: absolute;
+            top: 16px;
+            right: 3px;
+            transition: all 0.5s ease;
+        }
+    }
+    .select-styled:active:after,
+    .select-styled.active:after {
+        top: 9px;
+        border-color: transparent transparent #fff transparent;
+    }
+
+    .select-options {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        z-index: 999;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        background-color: $color-navbar;
+        li {
+            margin: 0;
+            padding: 12px 0;
+            text-indent: 15px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.15s ease-in;
+            &:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+        }
+        li[rel="hide"] {
+            display: none;
+            transition: all 0.15s ease-in;
+        }
+    }
+}
 #carousel-movie {
     h3 {
         font-size: 3rem;
@@ -246,7 +248,7 @@
     margin: 10px;
 }
 
-footer{
+footer {
     margin-top: 100px;
 }
 .footer-section {
@@ -304,15 +306,14 @@ footer{
             }
         }
     }
-    .footer-info{
+    .footer-info {
         margin-top: 100px;
-        .footer-info-top{
+        .footer-info-top {
             padding-bottom: 30px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-
         }
-        .footer-icon{
-            i{
+        .footer-icon {
+            i {
                 border: 1px solid rgba(255, 255, 255, 0.1);
                 padding: 14px;
                 margin-left: 10px;
@@ -322,19 +323,26 @@ footer{
                 // display: flex;
                 // justify-content: center;
                 // align-items: center;
-                transition: all .2s;
-                &:hover{
+                transition: all 0.2s;
+                &:hover {
                     background-color: $color-light;
                 }
             }
         }
-        .footer-info-bottom{
+        .footer-info-bottom {
             margin-bottom: 25px;
         }
-        .footer-small-sitemap{
-            a{
+        .footer-small-sitemap {
+            a {
                 margin-left: 30px;
             }
         }
     }
+}
+.theater-option{
+    padding: 40px 0;
+    background-color: $color-card;
+    margin-bottom: 80px;
+    border-top: 1px solid #17305f;
+    border-bottom: 1px solid #17305f;
 }
