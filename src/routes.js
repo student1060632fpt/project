@@ -2,6 +2,7 @@ import Home from "./pages/user/Home";
 import About from "./pages/user/About";
 import ListMovie from "./pages/user/ListMovie";
 import Detail from "./pages/user/Detail";
+import Seat from './pages/user/Seat';
 import DangKy from "./pages/user/DangKy";
 import DangNhap from "./pages/user/DangNhap";
 import Material from "./pages/user/Material";
@@ -35,6 +36,11 @@ const routesHome = [
     path: "/detail/:id",
     exact: false,
     component: Detail
+  },
+  {
+    path: "/seat/:id",
+    exact: false,
+    component: Seat
   },
   {
     path: "/material",

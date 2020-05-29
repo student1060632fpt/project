@@ -4,7 +4,8 @@ let initialState = {
   listMovie: [],
   detailMovie: {},
   theater: [],
-  cinema: []
+  cinema: [],
+  seat: {}
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -20,7 +21,11 @@ const movieReducer = (state = initialState, action) => {
       return { ...state };
     case ActionType.GET_CINEMA:
       state.cinema = action.data;
-      return{...state};
+      return { ...state };
+    case ActionType.GET_SEAT:
+      state.seat = action.data;
+      return { ...state }
+
     default:
       return { ...state };
   }

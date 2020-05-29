@@ -77,6 +77,22 @@ export const actDetailMovie = id => {
   };
 };
 
+export const actSeat = id => {
+  return dispatch => {
+    Axios({
+      method: "GET",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`
+    })
+    .then(rs => {
+      dispatch(actGetSeat(rs.data))
+    })
+    .catch(err => {
+      console.log(err);
+      
+    })
+  }
+}
+
 export const actTheater = maRap => {
   return dispatch => {
     Axios({
@@ -133,5 +149,12 @@ export const actGetCinema = cinema => {
   return {
     type: ActionType.GET_CINEMA,
     data: cinema
+  }
+}
+
+export const actGetSeat = seat => {
+  return{
+    type: ActionType.GET_SEAT,
+    data: seat
   }
 }

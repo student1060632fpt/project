@@ -8,6 +8,10 @@
 .custom-select:focus {
     box-shadow: none;
 }
+.theater-img{
+    border-radius: 10px;
+
+}
 .theater-img img{
     width: 100%;
     padding: 17px;
@@ -16,4 +20,7 @@
     &:hover{
         transform: scale(1.1);
     }
+}
+.banner-listmovie{
+    height: 65vh;
 }

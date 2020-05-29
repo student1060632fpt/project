@@ -10,6 +10,9 @@ import Cinema from './../../asset/img/cinema.png';
 import Exp from './../../asset/img/exp.png';
 import DateImg from './../../asset/img/date.png';
 import Banner from './../../asset/img/banner02.jpg';
+import Ad from './../../asset/img/adr03.jpg';
+
+
 import Slider from "react-slick";
 import SeatModal from "../../components/home/SeatModal";
 
@@ -260,7 +263,7 @@ class ListMovie extends Component {
     // moment để sửa lại thời gian
     return (
       <>
-        <div className="banner-detail">
+        <div className="banner-detail banner-listmovie">
           <img src={Banner} alt="banner-img" className="banner-detail-img" />
           <div className="banner-text text-center">
             <h2 className="text-uppercase">{this.renderTheaterName()}</h2>
@@ -332,8 +335,14 @@ class ListMovie extends Component {
             {/* {this.renderSlider()} */}
             {this.renderDate()}
           </Slider>
-          <div className="container-theater">
+          <div className="row container-theater">
+            <div className="col-md-9 col-sm-12">
+
             {this.renderHTMLTheater()}
+            </div>
+            <div className="col-md-3 hidden-sm hidden-xs">
+              <img className="w-100" src={Ad} alt="ads"/>
+            </div>
           </div>
         </div>
 
