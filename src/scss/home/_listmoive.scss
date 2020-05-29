@@ -1,0 +1,19 @@
+.form-inline .custom-select, .form-inline .input-group {
+    background-color: $color-navbar;
+    color: white;
+    border-radius: 0;
+    margin-top: 10px;
+    width: 100%;
+}
+.custom-select:focus {
+    box-shadow: none;
+}
+.theater-img img{
+    width: 100%;
+    padding: 17px;
+    transition: all .2s;
+    object-fit: cover;
+    &:hover{
+        transform: scale(1.1);
+    }
+}
