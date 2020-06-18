@@ -1,6 +1,43 @@
 import * as ActionType from "./../constants/ActionType";
 import Axios from "axios";
 
+export const actDangNhap = (user, history) => {
+  return dispatch => {
+    Axios({
+      method: "POST",
+      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
+      data: user
+    })
+    .then(rs => {
+      // console.log(rs.data);
+      // alert("Sign in successful!");
+      localStorage.setItem("user", JSON.stringify(rs.data));
+      history.push("/");
+    })
+    .catch(err => {
+      alert(err.response.data);
+    })
+  }
+}
+export const actDangKy = (user, history) => {
+  return dispatch => {
+    Axios({
+      method: "POST",
+      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
+      data: user,
+    })
+      .then(rs => {
+        // console.log(rs.data);
+        alert("Sign up successful!");
+        history.push("/home");
+        dispatch(actGetDangNhap(rs.data));
+      })
+      .catch(err => {
+        alert(err.response.data);
+      })
+  }
+}
+
 export const actThemNguoiDungAPI = user => {
   const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
 
@@ -83,13 +120,12 @@ export const actSeat = id => {
       method: "GET",
       url: `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`
     })
-    .then(rs => {
-      dispatch(actGetSeat(rs.data))
-    })
-    .catch(err => {
-      console.log(err);
-      
-    })
+      .then(rs => {
+        dispatch(actGetSeat(rs.data))
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 }
 
@@ -115,12 +151,12 @@ export const actCinema = () => {
       method: "GET",
       url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
     })
-    .then(rs => {
-      dispatch(actGetCinema(rs.data))
-    })
-    .catch(err => {
-      console.log(err);
-    })
+      .then(rs => {
+        dispatch(actGetCinema(rs.data))
+      })
+      .catch(err => {
+        console.log(err);
+      })
   }
 }
 
@@ -131,10 +167,18 @@ export const actGetListMovie = listMovie => {
   };
 };
 
+
 export const actGetDetailMovie = detailMovie => {
   return {
     type: ActionType.GET_DETAIL_MOVIE,
     data: detailMovie
+  };
+};
+
+export const actResetSeat = seat => {
+  return {
+    type: ActionType.GET_RESET_SEAT,
+    data: seat
   };
 };
 
@@ -153,8 +197,14 @@ export const actGetCinema = cinema => {
 }
 
 export const actGetSeat = seat => {
-  return{
+  return {
     type: ActionType.GET_SEAT,
     data: seat
+  }
+}
+export const actGetDangNhap = user => {
+  return {
+    type: ActionType.GET_USER,
+    data: user
   }
 }

@@ -12,9 +12,9 @@ import DateImg from './../../asset/img/date.png';
 import Banner from './../../asset/img/banner02.jpg';
 import Ad from './../../asset/img/adr03.jpg';
 
-
-import Slider from "react-slick";
+//small component
 import SeatModal from "../../components/home/SeatModal";
+import Date from "../../components/home/listMovie/Date";
 
 class ListMovie extends Component {
   constructor(props) {
@@ -25,7 +25,8 @@ class ListMovie extends Component {
       day: "",
       firstCinema: "BHDStar",
       value: "",
-      maCumRap: ""
+      maCumRap: "",
+      maLichChieu: ""
     }
   }
 
@@ -39,8 +40,6 @@ class ListMovie extends Component {
 
     //lấy cinema
     this.props.getCinema();
-
-
   }
 
   renderHTMLTheater = () => {
@@ -51,7 +50,6 @@ class ListMovie extends Component {
         return theaterItem.lstCumRap.map((th) => {
           // console.log(th);
           if (th.maCumRap === this.state.maCumRap) {
-
             return th.danhSachPhim.map((phim, index) => {
               return (
                 <div key={index} className="row row-theater">
@@ -68,7 +66,6 @@ class ListMovie extends Component {
                   </div>
                 </div>
               );
-
             })
           }
 
@@ -76,6 +73,7 @@ class ListMovie extends Component {
       })
     }
   }
+
   renderHTMLTicket = maPhimCho => {
     // console.log(maPhimCho);
     var moment = require('moment'); // require
@@ -87,9 +85,8 @@ class ListMovie extends Component {
         return theaterItem.lstCumRap.map((th) => {
           return th.danhSachPhim.map((phim) => {
             let maPhimXet = phim.maPhim;
-
             if (maPhimCho === maPhimXet) {
-              console.log(phim.tenPhim);
+              // console.log(phim.tenPhim);
               return phim.lstLichChieuTheoPhim.map((item, index) => {
                 let stateday = moment(this.state.day).format("MM/DD");
                 let thisday = moment(item.ngayChieuGioChieu).format("MM/DD");
@@ -97,14 +94,13 @@ class ListMovie extends Component {
                   return (
                     <div className="col-sm-3">
                       {/* và đây là nút chọn ghế hehe  */}
-                      <button key={index} className="btn-ticket" data-toggle="modal" data-target="#seatModal">
+                      <button key={index} className="btn-ticket" data-toggle="modal" data-target="#seatModal" onClick={() => this.giveSeat(item.maLichChieu)}>
                         {moment(item.ngayChieuGioChieu).format("HH:mm")}
                       </button>
                     </div>
                   );
                 }
               })
-
             }
           })
         })
@@ -112,44 +108,15 @@ class ListMovie extends Component {
     }
   }
 
-
-
-  renderDate = () => {
-    var moment = require('moment'); // require
-    var { theater } = this.props;
-
-    if (theater) {
-      return theater.map(theaterItem => {
-        return theaterItem.lstCumRap.map(cumRapItem => {
-          // console.log(cumRapItem);
-          let cumRapXet = cumRapItem.maCumRap;
-          if (cumRapXet === this.state.maCumRap) {
-            return cumRapItem.danhSachPhim.map(phimItem => {
-              return phimItem.lstLichChieuTheoPhim.map((lichChieuItem, index) => {
-                // let dayNow = moment(lichChieuItem.ngayChieuGioChieu).format("MM/DD");
-                // let indexBefore = index -1;
-                // let dayBefore = phimItem.lstLichChieuTheoPhim[indexBefore].ngayChieuGioChieu;
-                // console.log(dayBefore);
-                // if(dayNow === dayBefore){
-
-                // }
-                return (
-                  <div className="text-center" style="outline: none !important">
-                    <button key={index} className="btn-normal" onClick={() => { this.chooseDay(lichChieuItem.ngayChieuGioChieu) }}>
-                      {moment(lichChieuItem.ngayChieuGioChieu).format("MM/DD")}
-                    </button>
-                  </div>
-                );
-              });
-            });
-          }
-        })
-      })
-    }
+  giveSeat = seat => {
+    // console.log(seat);
+    this.setState({
+      maLichChieu: seat
+    })
   }
 
+
   chooseDay = day => {
-    console.log(day);
     this.setState({ day })
   }
 
@@ -224,43 +191,15 @@ class ListMovie extends Component {
       })
     }
   }
+  renderTheaterLocation = () => {
+    if (this.props.theater) {
+      return this.props.theater.map(index => {
+        return index.tenHeThongRap;
+      })
+    }
+  }
   render() {
     const { theater } = this.props;
-
-    const settings1 = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 6,
-      slidesToScroll: 6,
-      responsive: [
-        {
-          breakpoint: 1024,
-          settings: {
-            slidesToShow: 6,
-            slidesToScroll: 6,
-            infinite: true,
-            dots: true
-          }
-        },
-        {
-          breakpoint: 600,
-          settings: {
-            slidesToShow: 2,
-            slidesToScroll: 2,
-            initialSlide: 2
-          }
-        },
-        {
-          breakpoint: 480,
-          settings: {
-            slidesToShow: 1,
-            slidesToScroll: 1
-          }
-        }
-      ]
-    };
-    // moment để sửa lại thời gian
     return (
       <>
         <div className="banner-detail banner-listmovie">
@@ -284,7 +223,7 @@ class ListMovie extends Component {
                   // value={this.state.value}
                   onChange={this.selectCinema}
                 >
-                  <option value="BHDStar" active>BHD Star</option>
+                  <option value="BHDStar">BHD Star</option>
                   <option value="CGV">CGV</option>
                   <option value="CineStar">CineStar</option>
                   <option value="Galaxy">Galaxy Cinema</option>
@@ -331,23 +270,21 @@ class ListMovie extends Component {
         </div>
 
         <div className="container table-ticket">
-          <Slider {...settings1}>
-            {/* {this.renderSlider()} */}
-            {this.renderDate()}
-          </Slider>
+          <Date theater={this.props.theater} maCumRap={this.state.maCumRap} chooseDay={this.chooseDay}/>
+
           <div className="row container-theater">
             <div className="col-md-9 col-sm-12">
-
-            {this.renderHTMLTheater()}
+              
+              {this.renderHTMLTheater()}
             </div>
             <div className="col-md-3 hidden-sm hidden-xs">
-              <img className="w-100" src={Ad} alt="ads"/>
+              <img className="w-100" src={Ad} alt="ads" />
             </div>
           </div>
         </div>
 
         {/* seat modal  */}
-        <SeatModal />
+        <SeatModal seat={this.state.maLichChieu} />
       </>
     );
   }

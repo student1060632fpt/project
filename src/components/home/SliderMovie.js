@@ -28,7 +28,7 @@ export default class Movie extends Component {
     return (
         <div className="card slick-card">
           <Link className="link-img" to={`/detail/${movie.maPhim}`}>
-            <img className="card-img-top" to={`/detail/${movie.maPhim}`} src={movie.hinhAnh} alt={movie.tenPhim} />
+            <img className="card-img-top" src={movie.hinhAnh} alt={movie.tenPhim} />
           </Link>
           <div className="card-body">
             <h4>

@@ -1,8 +1,15 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import $ from "jquery";
+import { connect } from "react-redux";
 
-export default class Navbar extends Component {
+class Navbar extends Component {
+  constructor(props) {
+     super(props);
+    this.state = {
+      user: ""
+    }
+  }
   componentDidMount() {
     $(window).scroll(function () {
       if ($(document).scrollTop() > 100) {
@@ -11,9 +18,30 @@ export default class Navbar extends Component {
         $('.navbar').removeClass('navbar-home');
       }
     });
+    let user = JSON.parse(localStorage.getItem("user"));
+    // console.log(user);
+    if (user) {
+      this.setState({
+        user
+      })
+    } else {
+      this.setState({
+        user: ""
+      })
+    }
   }
 
+  logout = () => {
+    localStorage.removeItem("user");
+    this.setState({
+      user: ""
+    })
+    // console.log(this.props);
+
+    // this.props.history.push("/home");
+  }
   render() {
+    let { user } = this.state;
     return (
       <nav className="navbar navbar-expand-md fixed-top d-print">
         <div className="container">
@@ -78,26 +106,47 @@ export default class Navbar extends Component {
                   Material
               </NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="nav-link"
-                  to="/dang-ky"
-                >
-                  Đăng Ký
-              </NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink
-                  activeClassName="active"
-                  className="form-inline btn button-main"
-                  to="/dang-nhap"
-                >
-                  {/* <button className=""> */}
-                    Đăng nhập
-                  {/* </button> */}
-              </NavLink>
-              </li>
+              {user ? <>
+                <li className="nav-item">
+                  <NavLink
+                    activeClassName="active"
+                    className="nav-link"
+                    to="/list-movie"
+                  >
+                    {user.hoTen}
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <button
+                    className="form-inline btn button-main"
+                    onClick={this.logout}
+                  >
+                    <i className="fa fa-sign-out" aria-hidden="true"></i>
+                  </button>
+                </li>
+              </> :
+                <>
+                  <li className="nav-item">
+                    <NavLink
+                      activeClassName="active"
+                      className="nav-link"
+                      to="/dang-ky"
+                    >
+                      Sign up
+                    </NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink
+                      activeClassName="active"
+                      className="form-inline btn button-main"
+                      to="/dang-nhap"
+                    >
+                      Sign in
+                    </NavLink>
+                  </li>
+                </>
+              }
+
             </ul>
           </div>
         </div>
@@ -105,3 +154,11 @@ export default class Navbar extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    user: state.movieReducer.user
+  }
+}
+
+export default connect(mapStateToProps, null)(Navbar);

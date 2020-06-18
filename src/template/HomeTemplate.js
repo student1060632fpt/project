@@ -20,11 +20,15 @@ export default function HomeTemplate({ Component, ...props }) {
   return (
     <Route
       {...props}
-      render={propsComponent => (
+      render={propsComponent =>
+        
+      (
         <HomeLayout>
           <Component {...propsComponent} />
         </HomeLayout>
-      )}
+      )
+    
+    }
     />
   );
 }
