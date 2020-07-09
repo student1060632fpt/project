@@ -38,7 +38,7 @@ class Navbar extends Component {
     })
     // console.log(this.props);
 
-    // this.props.history.push("/home");
+    // this.props.history.push("/");
   }
   render() {
     let { user } = this.state;
@@ -111,7 +111,7 @@ class Navbar extends Component {
                   <NavLink
                     activeClassName="active"
                     className="nav-link"
-                    to="/list-movie"
+                    to="/account"
                   >
                     {user.hoTen}
                   </NavLink>
@@ -157,7 +157,7 @@ class Navbar extends Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.movieReducer.user
+    user: state.userReducer.user
   }
 }
 

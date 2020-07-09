@@ -25,7 +25,7 @@ class Admin extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h3>Admin</h3>
         <div className="container">
           <div className="col-sm-6 mx-auto">
@@ -54,7 +54,7 @@ class Admin extends Component {
             </form>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

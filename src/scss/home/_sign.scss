@@ -1,185 +1,183 @@
 /*Account-Section Here*/
-.background-img-sign{
-    background-image: url(./../../asset/img/account-bg.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    margin-top: 200px;
+.background-img-sign {
+  background-image: url(./../../asset/img/account-bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 200px;
 }
 
 .account-area {
-    width: 100%;
-    max-width: 540px;
-    padding: 60px 45px;
-    margin: 0 auto;
-    background-color: rgba(68, 90, 153, 0.051);
-            box-shadow: 0px 0px 29.4px 0.6px rgba(0, 0, 0, 0.5);
-  }
-  
+  width: 100%;
+  max-width: 540px;
+  padding: 60px 45px;
+  margin: 0 auto;
+  background-color: rgba(68, 90, 153, 0.051);
+  box-shadow: 0px 0px 29.4px 0.6px rgba(0, 0, 0, 0.5);
+}
+
+.account-area .section-header-3 {
+  margin-bottom: 27px;
+}
+
+@media (min-width: 576px) {
   .account-area .section-header-3 {
-    margin-bottom: 27px;
+    margin-bottom: 37px;
   }
+}
 
-  @media (min-width: 576px) {
-    .account-area .section-header-3 {
-      margin-bottom: 37px;
-    }
-  }
-  
+.account-area .section-header-3 .title {
+  margin-bottom: 0;
+}
+
+@media (min-width: 576px) {
   .account-area .section-header-3 .title {
-    margin-bottom: 0;
+    font-size: 40px;
   }
-  
-  @media (min-width: 576px) {
-    .account-area .section-header-3 .title {
-      font-size: 40px;
-    }
-  }
-  
-  .account-area .account-form .form-group {
-    margin-bottom: 22px;
-  }
-  
-  .account-area .account-form .form-group label {
-    margin-bottom: 10px;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.7);
-  }
-  
-  .account-area .account-form .form-group label span {
-    color: #f1481f;
-  }
-  
-  .account-area .account-form .form-group input {
-    height: 45px;
-    border-radius: 0;
-    border: none;
-    background-color: transparent;
-    border-bottom: 1px solid #23334f;
-    padding-left: 0;
-    outline: none;
-    color: white;
-  }
+}
 
-  .account-area .account-form .form-group input::placeholder {
-    color: #4c588f;
-  }
-  
-  .account-area .account-form .form-group input:focus {
-    border-color: #f1481f;
-  }
-  
-  .account-area .account-form .form-group input[type="submit"] {
-    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
-    -webkit-transition: all ease 0.3s;
-    transition: all ease 0.3s;
-    border-radius: 30px;
-    width: auto;
-    padding: 0 50px;
-    height: 50px;
-    text-transform: uppercase;
-    margin: 0 auto;
-    color: white;
-  }
-  
-  .account-area .account-form .form-group input[type="submit"]:hover {
-    -webkit-box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
-            box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
-  }
+.account-area .account-form .form-group {
+  margin-bottom: 22px;
+}
 
-  .account-area .account-form .form-group input[disabled=true]{
-    background-color: transparent !important;
-    opacity: 0.5 !important;
-  }
+.account-area .account-form .form-group label {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.account-area .account-form .form-group label span {
+  color: #f1481f;
+}
+
+.account-area .account-form .form-group input {
+  height: 45px;
+  border-radius: 0;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #23334f;
+  padding-left: 0;
+  outline: none;
+  color: white;
+}
+
+.account-area .account-form .form-group input::placeholder {
+  color: #4c588f;
+}
+
+.account-area .account-form .form-group input:focus {
+  border-color: #f1481f;
+}
+
+.account-area .account-form .form-group input[type="submit"] {
+  background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+  -webkit-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+  border-radius: 30px;
+  width: auto;
+  padding: 0 50px;
+  height: 50px;
+  text-transform: uppercase;
+  margin: 0 auto;
+  color: white;
+}
+
+.account-area .account-form .form-group input[type="submit"]:hover {
+  -webkit-box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
+  box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
+}
+
+.account-area .account-form .form-group input[disabled="true"] {
+  background-color: transparent !important;
+  opacity: 0.5 !important;
+}
+.account-area .account-form .form-group.checkgroup label {
+  color: #6d7bba;
+  font-size: 14px;
+  max-width: calc(100% - 15px);
+  padding-left: 5px;
+  margin-bottom: 0;
+  margin-right: auto;
+  text-transform: capitalize;
+}
+
+.account-area .account-form .form-group.checkgroup label a {
+  color: #31d7a9;
+}
+
+@media screen and (max-width: 425px) {
   .account-area .account-form .form-group.checkgroup label {
-    color: #6d7bba;
-    font-size: 14px;
-    max-width: calc(100% - 15px);
-    padding-left: 5px;
-    margin-bottom: 0;
-    margin-right: auto;
-    text-transform: capitalize;
+    font-size: 12px;
   }
-  
-  .account-area .account-form .form-group.checkgroup label a {
-    color: #31d7a9;
-  }
-  
-  @media screen and (max-width: 425px) {
-    .account-area .account-form .form-group.checkgroup label {
-      font-size: 12px;
-    }
-  }
-  
+}
+
+.account-area .account-form .form-group.checkgroup .forget-pass {
+  color: #6d7bba;
+  text-transform: capitalize;
+  font-size: 14px;
+  float: right;
+}
+
+@media screen and (max-width: 425px) {
   .account-area .account-form .form-group.checkgroup .forget-pass {
-    color: #6d7bba;
-    text-transform: capitalize;
-    font-size: 14px;
-    float: right;
+    font-size: 12px;
   }
-  
-  @media screen and (max-width: 425px) {
-    .account-area .account-form .form-group.checkgroup .forget-pass {
-      font-size: 12px;
-    }
-  }
-  
-  .account-area .option {
-    text-align: center;
-    margin-bottom: 28px;
-  }
-  
-  .account-area .option a {
-    color: #31d7a9;
-  }
-  
-  .account-area .or {
-    text-align: center;
-    text-transform: uppercase;
-    color: #ffffff;
-    overflow: hidden;
-    margin-top: -30px;
-    margin-bottom: 30px;
-}
-.account-area .or span{
-    background-color: #041637;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  
- 
-
-  .account-area .social-icons{
-      list-style: none;
-      display: flex;
-      justify-content: space-evenly;
-      padding: 0 50px;
-      font-size: 1rem;
-    }
-    .account-area .social-icons li a{
-        border-radius: 50%;
-        padding: 10px;
-        width: 70px;
-        height: 50px;
-    }
-    .account-area .social-icons li a.active {
-        /* display: inline; */
-    border-color: #001232;
-    background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
-  }
-  
-  @media screen and (max-width: 450px) {
-    .account-area {
-      padding: 40px 15px;
-    }
 }
 
-.cate{
-    color: #31d7a9;
+.account-area .option {
+  text-align: center;
+  margin-bottom: 28px;
 }
-.section-header-3 .title{
-    text-transform: uppercase;
+
+.account-area .option a {
+  color: #31d7a9;
 }
-.account-area hr{
+
+.account-area .or {
+  text-align: center;
+  text-transform: uppercase;
+  color: #ffffff;
+  overflow: hidden;
+  margin-top: -30px;
+  margin-bottom: 30px;
+}
+.account-area .or span {
+  background-color: #041637;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.account-area .social-icons {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0 50px;
+  font-size: 1rem;
+}
+.account-area .social-icons li a {
+  border-radius: 50%;
+  padding: 10px;
+  width: 70px;
+  height: 50px;
+}
+.account-area .social-icons li a.active {
+  /* display: inline; */
+  border-color: #001232;
+  background-image: -webkit-linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
+}
+
+@media screen and (max-width: 450px) {
+  .account-area {
+    padding: 40px 15px;
+  }
+}
+
+.cate {
+  color: #31d7a9;
+}
+.section-header-3 .title {
+  text-transform: uppercase;
+}
+.account-area hr {
   background: white;
 }

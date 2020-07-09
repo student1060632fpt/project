@@ -3,18 +3,14 @@ import * as action from "../../redux/action";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-
 // source image 
-import City from './../../asset/img/city.png';
-import Cinema from './../../asset/img/cinema.png';
-import Exp from './../../asset/img/exp.png';
-import DateImg from './../../asset/img/date.png';
 import Banner from './../../asset/img/banner02.jpg';
 import Ad from './../../asset/img/adr03.jpg';
 
 //small component
 import SeatModal from "../../components/home/SeatModal";
 import Date from "../../components/home/listMovie/Date";
+import SelectBar from "../../components/home/listMovie/SelectBar";
 
 class ListMovie extends Component {
   constructor(props) {
@@ -31,9 +27,6 @@ class ListMovie extends Component {
   }
 
   componentDidMount() {
-    //lấy id do ở home hoặc trang nào đó nhấn vào
-    let id = this.props.match.params.id;
-    this.props.getDetail(1344);
 
     //lấy theater
     this.props.getTheater(this.state.firstCinema);
@@ -60,7 +53,6 @@ class ListMovie extends Component {
                   </div>
                   <div className="col-sm-8 col-ticket">
                     <div className="row text-center div-ticket">
-                      {/* {this.renderTicket(movie.lichChieu[indexBefore].thongTinRap.maRap)} */}
                       {this.renderHTMLTicket(phim.maPhim)}
                     </div>
                   </div>
@@ -68,7 +60,6 @@ class ListMovie extends Component {
               );
             })
           }
-
         });
       })
     }
@@ -120,49 +111,6 @@ class ListMovie extends Component {
     this.setState({ day })
   }
 
-  renderOptionTheater = () => {
-    let { theater } = this.props;
-    // console.log(theater);
-    if (theater) {
-      return theater.map(mainTheater => {
-        let theaterName = mainTheater.tenHeThongRap;
-
-        let doDaiChuoi = theaterName.length;
-        let start = 0;
-        if (mainTheater.maHeThongRap === "BHDStar" || mainTheater.maHeThongRap === "CGV" || mainTheater.maHeThongRap === "MegaGS") {
-          start = doDaiChuoi + 3;
-        } else if (mainTheater.maHeThongRap === "CineStar") {
-          doDaiChuoi = theaterName.length - 2;
-          start = theaterName.length - 2;
-        }
-        return mainTheater.lstCumRap.map((item, index) => {
-          let rapChuaCat = item.tenCumRap;
-
-          let length = rapChuaCat.length - doDaiChuoi;
-          let rap = rapChuaCat.substr(start, length);
-          if (mainTheater.maHeThongRap === "BHDStar" || mainTheater.maHeThongRap === "CGV" || mainTheater.maHeThongRap === "MegaGS" || mainTheater.maHeThongRap === "CineStar") {
-            return (
-              <option
-                value={item.maCumRap}
-                key={index}
-              >
-                {rap}
-              </option>
-            );
-          } else {
-            return (
-              <option
-                value={item.maCumRap}
-                key={index}
-              >
-                {item.tenCumRap}
-              </option>
-            );
-          }
-        })
-      })
-    }
-  }
 
   //renderMovie
   renderMovie = event => {
@@ -191,6 +139,7 @@ class ListMovie extends Component {
       })
     }
   }
+
   renderTheaterLocation = () => {
     if (this.props.theater) {
       return this.props.theater.map(index => {
@@ -198,6 +147,7 @@ class ListMovie extends Component {
       })
     }
   }
+  
   render() {
     const { theater } = this.props;
     return (
@@ -213,58 +163,7 @@ class ListMovie extends Component {
         <div className="theater-option">
           <div className="container">
             <div className="row form-inline text-center">
-              <div className="form-group col-sm-3">
-                <div className="thumb">
-                  <img src={City} className="mr-2" alt="date" />
-                </div>
-                <span className="type">Cinema</span>
-                <select
-                  className="custom-select"
-                  // value={this.state.value}
-                  onChange={this.selectCinema}
-                >
-                  <option value="BHDStar">BHD Star</option>
-                  <option value="CGV">CGV</option>
-                  <option value="CineStar">CineStar</option>
-                  <option value="Galaxy">Galaxy Cinema</option>
-                  <option value="LotteCinima">Lotte Cinema</option>
-                  <option value="MegaGS">MegaGS</option>
-                </select>
-              </div>
-
-              <div className="form-group col-sm-3">
-                <div className="thumb">
-                  <img src={Cinema} className="mr-2" alt="date" />
-                </div>
-                <span className="type">Location</span>
-                <select className="custom-select" onChange={this.renderMovie}>
-                  <option value="">Choose one</option>
-                  {this.renderOptionTheater()}
-                </select>
-              </div>
-              <div className="form-group col-sm-3">
-                <div className="thumb">
-                  <img src={DateImg} className="mr-2" alt="date" />
-                </div>
-                <span className="type">City</span>
-                <select className="custom-select">
-                  <option value="26-12-19">Ho Chi Minh</option>
-                  <option value="26-12-19">Da Nang</option>
-                  <option value="26-12-19">Ha Noi</option>
-                </select>
-              </div>
-              <div className="form-group col-sm-3">
-                <div className="thumb">
-                  <img src={Exp} className="mr-2" alt="date" />
-                </div>
-                <span className="type">Experience</span>
-                <select className="custom-select">
-                  <option value="26-12-19">Subtitle</option>
-                  <option value="26-12-19">Present</option>
-                  <option value="26-12-19">Subtitle 3D</option>
-                  <option value="26-12-19">Present 3D</option>
-                </select>
-              </div>
+              <SelectBar selectCinema={this.selectCinema} renderMovie={this.renderMovie} theater={theater} />
             </div>
           </div>
         </div>
@@ -292,7 +191,6 @@ class ListMovie extends Component {
 
 const mapStateToProps = state => {
   return {
-    movie: state.movieReducer.detailMovie,
     theater: state.movieReducer.theater,
     cinema: state.movieReducer.cinema
   };
@@ -300,9 +198,6 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getDetail: id => {
-      dispatch(action.actDetailMovie(id));
-    },
     getTheater: theater => {
       dispatch(action.actTheater(theater));
     },

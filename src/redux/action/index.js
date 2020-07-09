@@ -72,7 +72,7 @@ export const actLoginAdmin = (user, history) => {
         if (rs.data.maLoaiNguoiDung === "QuanTri") {
           localStorage.setItem("userAdmin", JSON.stringify(rs.data));
           // Chuyen huong trang Dashboard
-          history.push("/admin/dashboard");
+          history.push("/admin/admin-quan-ly-lich-chieu");
         } else {
           alert("Ban khong co quyen truy cap");
         }
@@ -122,6 +122,8 @@ export const actSeat = id => {
     })
       .then(rs => {
         dispatch(actGetSeat(rs.data))
+        // console.log(rs.data);
+        
       })
       .catch(err => {
         console.log(err);
@@ -157,6 +159,58 @@ export const actCinema = () => {
       .catch(err => {
         console.log(err);
       })
+  }
+}
+
+export const actLayDanhSachNguoiDung = () => {
+  return dispatch => {
+    Axios({
+      method: "GET",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`
+    })
+    .then(rs => {
+      dispatch(actDanhSachNguoiDung(rs.data));
+      
+    })
+    .catch(err=>{
+      console.log("Lấy danh sách người dùng bị lỗi" , err);
+    })
+  }
+}
+
+export const actPutDSND = user => {
+  const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
+
+  return dispatch => {
+    Axios({
+      method: "PUT",
+      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+      data: user,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`
+      }
+    })
+    .then(rs => {
+        console.log(rs.data);
+        dispatch(actPutNguoiDung(rs.data));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+
+export const actPutNguoiDung = user => {
+  return {
+    type: ActionType.GET_LIST_ND,
+    data: user
+  }
+}
+
+export const actDanhSachNguoiDung = list => {
+  return {
+    type: ActionType.GET_LIST_ND,
+    data: list
   }
 }
 

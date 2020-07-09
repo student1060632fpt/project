@@ -6,8 +6,8 @@ import Seat from './pages/user/Seat';
 import DangKy from "./pages/user/DangKy";
 import DangNhap from "./pages/user/DangNhap";
 import Material from "./pages/user/Material";
+import Account from './pages/user/Account';
 
-import Dashboard from "./pages/admin/Dashboard";
 import ThemNguoiDung from "./pages/admin/ThemNguoiDung";
 import AdminQuanLyLichChieu from "./pages/admin/AdminQuanLyLichChieu";
 
@@ -48,6 +48,11 @@ const routesHome = [
     component: Material
   },
   {
+    path: "/account",
+    exact: false,
+    component: Account
+  },
+  {
     path: "/dang-ky",
     exact: false,
     component: DangKy
@@ -60,11 +65,6 @@ const routesHome = [
 ];
 
 const routesAdmin = [
-  {
-    path: "/admin/dashboard",
-    exact: false,
-    component: Dashboard
-  },
   {
     path: "/admin/them-nguoi-dung",
     exact: false,

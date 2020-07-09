@@ -30,7 +30,7 @@ class ThemNguoiDung extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h3>ThemNguoiDung</h3>
         <form className="container" onSubmit={this.handleSubmit}>
           <h3>Thêm người dùng</h3>
@@ -96,7 +96,7 @@ class ThemNguoiDung extends Component {
             </button>
           </div>
         </form>
-      </div>
+      </>
     );
   }
 }
