@@ -58,7 +58,7 @@ class CarouselMovie extends Component {
                         <h3>Movie</h3>
                         <p className="d-wrap">
                             Be sure not to miss these Movies today.
-            </p>
+                        </p>
                     </div>
                     <div className="col-lg-6 align-self-center">
                         <ul className="nav float-md-right">

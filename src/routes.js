@@ -8,8 +8,8 @@ import DangNhap from "./pages/user/DangNhap";
 import Material from "./pages/user/Material";
 import Account from './pages/user/Account';
 
-import ThemNguoiDung from "./pages/admin/ThemNguoiDung";
 import AdminQuanLyLichChieu from "./pages/admin/AdminQuanLyLichChieu";
+import AdminQLND from "./pages/admin/AdminQLND";
 
 const routesHome = [
   {
@@ -66,14 +66,14 @@ const routesHome = [
 
 const routesAdmin = [
   {
-    path: "/admin/them-nguoi-dung",
-    exact: false,
-    component: ThemNguoiDung
-  },
-  {
     path: "/admin/admin-quan-ly-lich-chieu",
     exact: false,
     component: AdminQuanLyLichChieu
+  },
+  {
+    path: "/admin/admin-quan-ly-nguoi-dung",
+    exact: false,
+    component: AdminQLND
   }
 ];
 

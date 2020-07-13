@@ -1,8 +1,9 @@
-import * as ActionType from './../constants/ActionType';
+import * as ActionType from '../constants/ActionType';
 
 let initialState = {
     seat: null,
-    resetSeat: null
+    resetSeat: null,
+    seatNumber: []
 }
 
 const seatReducer = (state = initialState, action) => {
@@ -11,8 +12,25 @@ const seatReducer = (state = initialState, action) => {
             state.seat = action.data;
             return { ...state };
         }
-        case ActionType.GET_RESET_SEAT:{
+        case ActionType.GET_RESET_SEAT: {
             state.resetSeat = action.data;
+            return { ...state };
+        }
+        case ActionType.PROPS_SEAT: {
+            let seatNumber = [...state.seatNumber];
+            let index = state.seatNumber.findIndex(seat => {
+                return seat === action.data;
+            })
+            // console.log(index);
+            if (action.data) {
+                if (index === -1) {
+                    seatNumber.push(action.data)
+                } else {
+                    seatNumber.splice(index, 1)
+                }
+            }
+            state.seatNumber = seatNumber;
+            console.log(state.seatNumber);
             return { ...state };
         }
         default: {

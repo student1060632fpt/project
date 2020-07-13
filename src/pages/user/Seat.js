@@ -43,7 +43,7 @@ class Seat extends Component {
                     </div>
                 </div>
                 {/* ==========Page-Title========== */}
-                <PageTitle seat={seat}/>
+                <PageTitle seat={seat} />
                 {/* ==========Page-Title========== */}
                 {/* ==========Movie-Section========== */}
                 <div className="seat-plan-section padding-bottom padding-top">
@@ -54,18 +54,14 @@ class Seat extends Component {
                                 <img src={Screen} alt="movie" />
                             </div>
                             <h5 className="subtitle">Normal</h5>
-                            <div className="screen-wrapper">
-                                <ul className="seat-area">
-                                    <SeatLine listSeat={seat.danhSachGhe} openSeat={this.openSeat}/>
-                                </ul>
-                            </div>
+                            <SeatLine listSeat={seat.danhSachGhe} openSeat={this.openSeat} />
                         </div>
 
                         {/* ex seat  */}
-                        <ExSeat/>
+                        <ExSeat />
 
                         {/* proceed book  */}
-                        <ProceedBook/>
+                        <ProceedBook />
 
                     </div>
                 </div>
@@ -85,7 +81,7 @@ const mapStateToProps = state => {
                 tenRap: "Rạp 7",
                 diaChi: "Quận cam",
                 tenPhim: "Đoán xem",
-                hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_gp01.jpg",
+                hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_GP07.jpg",
                 ngayChieu: "08/01/2019",
                 gioChieu: "10:01"
             },

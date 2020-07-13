@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import MaterialTable from 'material-table';
-import "react-datepicker/dist/react-datepicker.css";
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -22,22 +21,21 @@ import { forwardRef } from 'react';
 import { connect } from 'react-redux';
 import * as action from "../../redux/action";
 
-class AdminQuanLyLichChieu extends Component {
+class AdminQLND extends Component {
     constructor(props) {
         super(props);
         this.state = {
             columns: [
-                { title: 'Email', field: 'email' },
-                { title: 'Họ tên', field: 'hoTen' },
+                { title: 'Tài khoản', field: 'taiKhoan', editable: 'onAdd' },
+                { title: 'Mật khẩu', field: 'matKhau', type: 'password' },
+                { title: 'Email', field: 'email', type: 'email' },
+                { title: 'Số điện thoại', field: 'soDt', type: 'numeric' },
                 {
                     title: 'Loại',
                     field: 'maLoaiNguoiDung',
                     lookup: { QuanTri: 'Quản trị', KhachHang: 'Khách Hàng' },
                 },
-                { title: 'Mật khẩu', field: 'matKhau', type: 'password' },
-                { title: 'Số điện thoại', field: 'soDt', type: 'numeric' },
-                { title: 'Tài khoản', field: 'taiKhoan' },
-
+                { title: 'Họ tên', field: 'hoTen' },
             ],
             data: this.props.list,
         }
@@ -45,7 +43,7 @@ class AdminQuanLyLichChieu extends Component {
 
     componentDidMount() {
         this.props.getDSND();
-
+        
         setTimeout(() => {
             this.setState({
                 data: this.props.list
@@ -61,8 +59,21 @@ class AdminQuanLyLichChieu extends Component {
         }
     }
 
-    putDSND = data => {
-        this.props.putDSND(data);
+    handleEdit = userInput => {
+        delete userInput['tableData'];
+        let user = { ...userInput, maNhom: "GP07" };
+        this.props.putDSND(user);
+    }
+
+    handleAdd = user => {
+        delete user['tableData'];
+        console.log(user);
+        this.props.addDSND(user);
+    }
+
+    handleDelete = user => {
+        // console.log(user.taiKhoan);
+        this.props.deleteDSND(user.taiKhoan);
     }
 
     render() {
@@ -85,6 +96,7 @@ class AdminQuanLyLichChieu extends Component {
             ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
             ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
         };
+        // console.log(this.z)
         return (
             <>
                 <MaterialTable
@@ -97,6 +109,8 @@ class AdminQuanLyLichChieu extends Component {
                             new Promise((resolve) => {
                                 setTimeout(() => {
                                     resolve();
+                                    // thêm người dùng 
+                                    this.handleAdd(newData);
                                     this.setState((prevState) => {
                                         const data = [...prevState.data];
                                         data.push(newData);
@@ -108,11 +122,12 @@ class AdminQuanLyLichChieu extends Component {
                             new Promise((resolve) => {
                                 setTimeout(() => {
                                     resolve();
+                                    //gửi axios lên sửa user
+                                    this.handleEdit(newData);
                                     if (oldData) {
                                         this.setState((prevState) => {
                                             const data = [...prevState.data];
                                             data[data.indexOf(oldData)] = newData;
-                                            this.putDSND(newData);
                                             return { ...prevState, data };
                                         });
                                     }
@@ -122,6 +137,8 @@ class AdminQuanLyLichChieu extends Component {
                             new Promise((resolve) => {
                                 setTimeout(() => {
                                     resolve();
+                                    // gửi axios lên xóa user 
+                                    this.handleDelete(oldData);
                                     this.setState((prevState) => {
                                         const data = [...prevState.data];
                                         data.splice(data.indexOf(oldData), 1);
@@ -135,7 +152,6 @@ class AdminQuanLyLichChieu extends Component {
         )
     }
 }
-
 const mapStateToProps = state => {
     return {
         list: state.userReducer.list || [{
@@ -156,8 +172,14 @@ const mapDispatchToProps = dispatch => {
         },
         putDSND: data => {
             dispatch(action.actPutDSND(data))
+        },
+        deleteDSND: data => {
+            dispatch(action.actDeleteDSND(data))
+        },
+        addDSND: data => {
+            dispatch(action.actAddDSND(data))
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AdminQuanLyLichChieu);
+export default connect(mapStateToProps, mapDispatchToProps)(AdminQLND);

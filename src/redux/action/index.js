@@ -19,6 +19,7 @@ export const actDangNhap = (user, history) => {
     })
   }
 }
+
 export const actDangKy = (user, history) => {
   return dispatch => {
     Axios({
@@ -88,7 +89,7 @@ export const actGetListMovieAPI = () => {
     Axios({
       method: "GET",
       url:
-        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01"
+        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07"
     })
       .then(rs => {
         dispatch(actGetListMovie(rs.data));
@@ -135,7 +136,7 @@ export const actTheater = maRap => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP01`
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP07`
     })
       .then(rs => {
         // console.log(rs.data);
@@ -162,15 +163,15 @@ export const actCinema = () => {
   }
 }
 
+// -----------ADMIN DANH SACH NGUOI DUNG-----------
 export const actLayDanhSachNguoiDung = () => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP01`
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP07`
     })
     .then(rs => {
       dispatch(actDanhSachNguoiDung(rs.data));
-      
     })
     .catch(err=>{
       console.log("Lấy danh sách người dùng bị lỗi" , err);
@@ -191,8 +192,8 @@ export const actPutDSND = user => {
       }
     })
     .then(rs => {
-        console.log(rs.data);
-        dispatch(actPutNguoiDung(rs.data));
+      console.log("Put người dùng thành công", rs.data);
+      // dispatch(actPutNguoiDung(rs.data));
     })
     .catch(err => {
       console.log(err);
@@ -200,10 +201,47 @@ export const actPutDSND = user => {
   }
 }
 
-export const actPutNguoiDung = user => {
-  return {
-    type: ActionType.GET_LIST_ND,
-    data: user
+export const actAddDSND = user => {
+  const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
+
+  return dispatch => {
+    Axios({
+      method: "POST",
+      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+      data: user,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`
+      }
+    })
+    .then(rs => {
+      console.log("Thêm người dùng thành công");
+      // dispatch(actPutNguoiDung(rs.data));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+
+export const actDeleteDSND = user => {
+  const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
+
+  return dispatch => {
+    Axios({
+      method: "DELETE",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,
+      // data: user,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`
+      }
+    })
+    .then(rs => {
+        console.log("Delete người dùng thành công", rs.data);
+        // dispatch(actPutNguoiDung(rs.data));
+    })
+    .catch(err => {
+      alert(err.response.data);
+    })
   }
 }
 
@@ -213,6 +251,7 @@ export const actDanhSachNguoiDung = list => {
     data: list
   }
 }
+// -----------END ADMIN DANH SACH NGUOI DUNG-----------
 
 export const actGetListMovie = listMovie => {
   return {
@@ -220,7 +259,6 @@ export const actGetListMovie = listMovie => {
     data: listMovie
   };
 };
-
 
 export const actGetDetailMovie = detailMovie => {
   return {
@@ -256,9 +294,17 @@ export const actGetSeat = seat => {
     data: seat
   }
 }
+
 export const actGetDangNhap = user => {
   return {
     type: ActionType.GET_USER,
     data: user
+  }
+}
+
+export const actPropsSeat = seat =>{
+  return {
+    type: ActionType.PROPS_SEAT,
+    data: seat
   }
 }

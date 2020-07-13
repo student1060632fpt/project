@@ -14,7 +14,7 @@ class DangKy extends Component {
         soDt: "",
         hoTen: "",
         maLoaiNguoiDung: "KhachHang",
-        maNhom: "GP01"
+        maNhom: "GP07"
       },
       errors: {
         taiKhoan: "",

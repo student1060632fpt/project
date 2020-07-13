@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import MaterialTable from 'material-table';
-import "react-datepicker/dist/react-datepicker.css";
 
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowDownward from '@material-ui/icons/ArrowDownward';
@@ -27,17 +26,21 @@ class AdminQuanLyLichChieu extends Component {
         super(props);
         this.state = {
             columns: [
-                { title: 'Email', field: 'email' },
-                { title: 'Họ tên', field: 'hoTen' },
+                { title: 'Mã phim', field: 'maPhim' },
+                { title: 'Tên phim', field: 'tenPhim' },
+                { title: 'Bí danh', field: 'biDanh' },
+                { title: 'Trailer', field: 'trailer' },
                 {
-                    title: 'Loại',
-                    field: 'maLoaiNguoiDung',
-                    lookup: { QuanTri: 'Quản trị', KhachHang: 'Khách Hàng' },
+                    title: 'Hình ảnh',
+                    field: 'hinhAnh',
+                    type: "url",
+                    editComponent: props => <input type="file" onChange={e => props.onChange(e.target.files[0])}/>,
+                    render: rowData => <img src={rowData.hinhAnh} style={{ width: 100 }} />
                 },
-                { title: 'Mật khẩu', field: 'matKhau', type: 'password' },
-                { title: 'Số điện thoại', field: 'soDt', type: 'numeric' },
-                { title: 'Tài khoản', field: 'taiKhoan' },
-
+                { title: 'Mô tả', field: 'moTa' },
+                { title: 'Mã nhóm', field: 'maNhom' },
+                { title: 'Ngày khởi chiếu', field: 'ngayKhoiChieu' },
+                { title: 'Đánh giá', field: 'danhGia' }
             ],
             data: this.props.list,
         }
@@ -45,8 +48,7 @@ class AdminQuanLyLichChieu extends Component {
 
     componentDidMount() {
         this.props.getDSND();
-        
-        
+
         setTimeout(() => {
             this.setState({
                 data: this.props.list
@@ -62,8 +64,10 @@ class AdminQuanLyLichChieu extends Component {
         }
     }
 
+    
+
     putDSND = data => {
-        this.props.putDSND(data);
+        // this.props.putDSND(data);
     }
 
     render() {
@@ -99,6 +103,7 @@ class AdminQuanLyLichChieu extends Component {
                             new Promise((resolve) => {
                                 setTimeout(() => {
                                     resolve();
+                                    this.handleAdd(newData);
                                     this.setState((prevState) => {
                                         const data = [...prevState.data];
                                         data.push(newData);
@@ -140,13 +145,16 @@ class AdminQuanLyLichChieu extends Component {
 
 const mapStateToProps = state => {
     return {
-        list: state.userReducer.list || [{
-            email: "thanhvienmoi@gmail.com",
-            hoTen: "Đặng Thái Vỉ",
-            maLoaiNguoiDung: "QuanTri",
-            matKhau: "123456",
-            soDt: "0123123213",
-            taiKhoan: "dangthaivi123"
+        list: state.movieReducer.listMovie || [{
+            maPhim: 1314,
+            tenPhim: "stringHelo2321312asdasda adasd",
+            biDanh: "stringhelo2321312asdasda-adasd",
+            trailer: "string",
+            hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/stringhelo2321312asdasda-adasd_GP07.jpeg?alt=media",
+            moTa: "string",
+            maNhom: "GP07",
+            ngayKhoiChieu: "2020-02-06T00:00:00",
+            danhGia: 5
         }]
     }
 }
@@ -154,10 +162,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         getDSND: () => {
-            dispatch(action.actLayDanhSachNguoiDung({}))
-        },
-        putDSND: data => {
-            dispatch(action.actPutDSND(data))
+            dispatch(action.actGetListMovieAPI({}))
         }
     }
 }

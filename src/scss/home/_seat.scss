@@ -1,14 +1,13 @@
-.screen-area .subtitle::before, .screen-area .subtitle::after {
+.screen-area .subtitle::before,
+.screen-area .subtitle::after {
   position: absolute;
-  content: '';
+  content: "";
 }
 
 .display-flex {
-display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
-
-
 
 /*Window Warning Starts Here*/
 .window-warning {
@@ -18,9 +17,9 @@ display: flex;
   left: 0;
   right: 0;
   box-pack: center;
-          justify-content: center;
+  justify-content: center;
   box-align: center;
-          align-items: center;
+  align-items: center;
   overflow-y: scroll;
   padding: 30px 15px;
   z-index: 9999;
@@ -111,7 +110,8 @@ display: flex;
   padding: 10px;
 }
 
-.screen::after, .screen::before {
+.screen::after,
+.screen::before {
   left: 50%;
   transform: translateX(-50%);
   transform: translateX(-50%);
@@ -164,7 +164,8 @@ display: flex;
   color: #31d7a9;
 }
 
-.screen-area .subtitle::after, .screen-area .subtitle::before {
+.screen-area .subtitle::after,
+.screen-area .subtitle::before {
   left: 50%;
   transform: translateX(-50%);
   transform: translateX(-50%);
@@ -201,11 +202,11 @@ display: flex;
 
 .seat-area .seat-line {
   box-align: center;
-          align-items: center;
+  align-items: center;
   flex-wrap: nowrap;
-      flex-wrap: nowrap;
+  flex-wrap: nowrap;
   box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   padding: 0;
 }
 
@@ -219,8 +220,8 @@ display: flex;
 
 .seat-area .seat-line ul {
   flex-wrap: nowrap;
-      flex-wrap: nowrap;
-      justify-content: space-around;
+  flex-wrap: nowrap;
+  justify-content: space-around;
 }
 
 .seat-area .seat-line ul .front-seat {
@@ -269,44 +270,51 @@ display: flex;
 
 .single-seat {
   position: relative;
-  transition: all .2s;
+  transition: all 0.2s;
 }
 
-.single-seat .sit-num, .seat-number, .seat-number-booked {
+.single-seat .seat-number{
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   text-transform: uppercase;
-
 }
-.seat-number-booked{
+.seat-number-booked {
   display: none;
 }
-.single-seat:hover .seat-number-booked{
+.single-seat:hover .seat-number-booked {
   display: block;
 }
-.seat-number{
+.seat-number {
   color: white;
-  display: block;
+  opacity: 0;
+  font-size: 0.8rem;
 }
-.seat-booked img{
+.seat-number:hover {
+  // color: white;
+  display: block;
+  opacity: 1;
+}
+.seat-booked img {
   filter: grayscale(100%);
-  
+
   opacity: 0.6;
 }
-.single-seat .active .seat-number{
+.single-seat .active .seat-number {
   display: block;
+  opacity: 1;
 }
-.single-seat .active img{
+.single-seat .active img  {
   filter: hue-rotate(90deg) invert(10%);
 }
-.single-seat:hover img{
+.single-seat:hover img {
   opacity: 0.7;
 }
 @media (max-width: 991px) {
-  .single-seat .sit-num, .seat-number {
+  .single-seat .sit-num,
+  .seat-number {
     width: 100%;
     text-align: center;
   }
@@ -336,15 +344,13 @@ display: flex;
 
 .proceed-to-book {
   box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   box-align: center;
-          align-items: center;
+  align-items: center;
   margin-bottom: -25px;
   position: relative;
   z-index: 1;
 }
-
-
 
 .proceed-to-book .book-item {
   margin-bottom: 25px;
@@ -370,9 +376,9 @@ display: flex;
   padding: 32px 40px 32px;
   position: relative;
   background-image: url(./../../asset/img/movie-bg-proceed.jpg);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
 }
 
 .proceed-book::before {
@@ -392,10 +398,10 @@ display: flex;
 
 .page-title-area {
   box-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   margin: 0 -15px -20px;
   box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .page-title-area .item {
@@ -411,13 +417,13 @@ display: flex;
 @media (max-width: 767px) {
   .page-title-area .item.md-order-1 {
     box-ordinal-group: 2;
-            order: 1;
+    order: 1;
   }
 }
 
 .page-title-area .date-item {
   box-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .page-title-area .date-item .date {
@@ -429,7 +435,7 @@ display: flex;
   border-radius: 5px;
   background-image: linear-gradient(169deg, #5560ff 17%, #aa52a1 63%, #ff4343 100%);
   box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
-          box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
+  box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
   border: none;
   height: 36px;
   background-color: #050068;
@@ -449,7 +455,8 @@ display: flex;
   padding-bottom: 0;
 }
 
-.page-title-area .date-item .select-bar .list li:hover, .page-title-area .date-item .select-bar .list li.selected {
+.page-title-area .date-item .select-bar .list li:hover,
+.page-title-area .date-item .select-bar .list li.selected {
   background: #001232;
 }
 
@@ -463,36 +470,41 @@ display: flex;
   border-bottom: 1px solid #17305f;
 }
 
-.proceed-book::before{
+.proceed-book::before {
   position: absolute;
   content: "";
   top: 0;
   left: 0;
   /* z-index: 2; */
-
 }
 .banner-detail::before {
-  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 18, 50, .134891)), color-stop(90%, #001232));
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(0, 18, 50, 0.134891)),
+    color-stop(90%, #001232)
+  );
 }
-.bg-one{
+.bg-one {
   background-color: #032055;
 }
-.seat-plan-section{
+.seat-plan-section {
   margin-top: 50px;
 }
-.help-seat{
+.help-seat {
   margin: inherit;
   padding: 32px 40px;
   padding-top: 0;
 }
-@media screen and (max-width: 768px){
-.help-seat{
-  padding-top: 20px;
-  padding-bottom: 0px;
+@media screen and (max-width: 768px) {
+  .help-seat {
+    padding-top: 20px;
+    padding-bottom: 0px;
+  }
 }
-}
-@media screen and (max-width: 767px){
-.screen-area .subtitle{
-  margin-top: 50px;
-}
+@media screen and (max-width: 767px) {
+  .screen-area .subtitle {
+    margin-top: 50px;
+  }
 }
