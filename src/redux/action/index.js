@@ -200,7 +200,6 @@ export const actPutDSND = user => {
     })
   }
 }
-
 export const actAddDSND = user => {
   const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
 
@@ -222,7 +221,6 @@ export const actAddDSND = user => {
     })
   }
 }
-
 export const actDeleteDSND = user => {
   const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
 
@@ -244,7 +242,6 @@ export const actDeleteDSND = user => {
     })
   }
 }
-
 export const actDanhSachNguoiDung = list => {
   return {
     type: ActionType.GET_LIST_ND,
@@ -252,6 +249,70 @@ export const actDanhSachNguoiDung = list => {
   }
 }
 // -----------END ADMIN DANH SACH NGUOI DUNG-----------
+// -----------ADMIN QUAN LY LICH CHIEU ---------
+export const actAddLC = movie => {
+  const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
+
+  return dispatch => {
+    Axios({
+      method: "POST",
+      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim",
+      data: movie,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`
+      }
+    })
+    .then(rs => {
+      console.log("Thêm phim thành công");
+      // dispatch(actPutNguoiDung(rs.data));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+export const actEditLC = movie => {
+  const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
+  return dispatch => {
+    Axios({
+      method: "POST",
+      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhim",
+      data: movie,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`
+      }
+    })
+    .then(rs => {
+      console.log("Put movie thành công", rs.data);
+      // dispatch(actPutNguoiDung(rs.data));
+    })
+    .catch(err => {
+      console.log(err);
+    })
+  }
+}
+export const actDeleteLC = user => {
+  const userAdmin = JSON.parse(localStorage.getItem("userAdmin"));
+
+  return dispatch => {
+    Axios({
+      method: "DELETE",
+      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${user}`,
+      // data: user,
+      headers: {
+        Authorization: `Bearer ${userAdmin.accessToken}`
+      }
+    })
+    .then(rs => {
+        console.log("Delete movie thành công", rs.data);
+        // dispatch(actPutNguoiDung(rs.data));
+    })
+    .catch(err => {
+      alert(err.response.data);
+    })
+  }
+}
+// -----------END ADMIN QUAN LY LICH CHIEU ---------
 
 export const actGetListMovie = listMovie => {
   return {
@@ -306,5 +367,19 @@ export const actPropsSeat = seat =>{
   return {
     type: ActionType.PROPS_SEAT,
     data: seat
+  }
+}
+
+export const actGetKeyWord = keyword => {
+  return {
+    type: ActionType.SEARCH,
+    data: keyword
+  }
+}
+
+export const actProcess = data => {
+  return {
+    type: ActionType.PROCESS,
+    data
   }
 }

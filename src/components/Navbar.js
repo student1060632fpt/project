@@ -85,7 +85,7 @@ class Navbar extends Component {
                   className="nav-link"
                   to="/about"
                 >
-                  Movie
+                  Search
               </NavLink>
               </li>
               <li className="nav-item">
@@ -97,7 +97,7 @@ class Navbar extends Component {
                   Cinema
                 </NavLink>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <NavLink
                   activeClassName="active"
                   className="nav-link"
@@ -105,7 +105,7 @@ class Navbar extends Component {
                 >
                   Material
               </NavLink>
-              </li>
+              </li> */}
               {user ? <>
                 <li className="nav-item">
                   <NavLink

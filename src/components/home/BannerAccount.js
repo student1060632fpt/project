@@ -3,14 +3,14 @@ import React, { Component } from 'react'
 export default class BannerAccount extends Component {
     render() {
         return (
-            <section className="speaker-banner bg_img" data-background="./asset/img/banner08.jpg">
+            <section className="speaker-banner bg_img">
                 <div className="container">
                     <div className="speaker-banner-content">
                         <h2 className="title">My Account</h2>
                         <ul className="breadcrumb">
                             <li>
                                 my profile
-        </li>
+                            </li>
                         </ul>
                     </div>
                 </div>

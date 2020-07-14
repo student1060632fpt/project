@@ -16,7 +16,6 @@ export default class SeatLine extends Component {
           seat={seat}
           letterLine={letterLine[index]}
           line={line[index]}
-          
         />
       );
     })

@@ -96,7 +96,6 @@ class AdminQLND extends Component {
             ThirdStateCheck: forwardRef((props, ref) => <Remove {...props} ref={ref} />),
             ViewColumn: forwardRef((props, ref) => <ViewColumn {...props} ref={ref} />)
         };
-        // console.log(this.z)
         return (
             <>
                 <MaterialTable

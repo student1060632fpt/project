@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import Date from './../../asset/img/date.png';
 import Cinema from './../../asset/img/cinema.png';
 import $ from "jquery";
+import { connect } from 'react-redux';
+import * as action from './../../redux/action'
+import { Link } from 'react-router-dom';
 
-
-export default class TicketSearch extends Component {
+class TicketSearch extends Component {
     componentDidMount() {
         $('select').each(function () {
             var $this = $(this), numberOfOptions = $(this).children('option').length;
@@ -62,10 +64,15 @@ export default class TicketSearch extends Component {
                     </div>
                     <form className="form-inline">
                         <div className="form-group col-lg-4 col-md-12">
-                            <input type="text" id="search" placeholder="Search for movie" />
-                            <button className="btn btn-search" type="button">
+                            <input 
+                            type="text" 
+                            id="search" 
+                            placeholder="Search for movie" 
+                            onChange={e => {this.props.getKeyWord(e.target.value)}}
+                            />
+                            <Link className="btn btn-search" type="button" to={`/about`}>
                                 <i className="fa fa-search"></i>
-                            </button>
+                            </Link>
                         </div>
                         <div className="form-group col-lg-4 col-md-6 my-select">
                             <div className="thumb">
@@ -97,3 +104,13 @@ export default class TicketSearch extends Component {
         )
     }
 }
+
+const mapDispatchToProps = dispatch => {
+    return {
+        getKeyWord: keyword => {
+            dispatch(action.actGetKeyWord(keyword))
+        }
+    }
+}
+
+export default connect (null, mapDispatchToProps)(TicketSearch);

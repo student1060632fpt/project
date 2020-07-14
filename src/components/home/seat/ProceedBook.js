@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom';
+import * as action from './../../../redux/action';
 
 class ProceedBook extends Component {
     constructor(props) {
@@ -8,39 +10,35 @@ class ProceedBook extends Component {
             price: 0,
         }
     }
-    componentDidMount() {
-        this.setState({
-            seat: this.props.seat
-        })
-    }
-    renderSeat = () => {
-        let {seat} = this.props;
-        if (seat === []){
+
+    renderseatNumber = () => {
+        let { seatNumber } = this.props;
+        if (seatNumber === []) {
             return "Choose one";
         } else {
-            return `${seat}`;
+            return `${seatNumber}`;
         }
     }
 
-    calculate = () =>{
-        let {seat} = this.props;
-
-        return 1;
+    calculate = () => {
+        let { seatNumber } = this.props;
+        let priceSeat = seatNumber.length * 75000;
+        return priceSeat;
     }
     render() {
         return (
             <div className="proceed-book bg_img" data-background>
                 <div className="proceed-to-book display-flex">
                     <div className="book-item">
-                        <span>You have Choosed Seat</span>
-                        <h3 className="title">{this.renderSeat()}</h3>
+                        <span>You have Choosed Seat Number</span>
+                        <h3 className="title">{this.renderseatNumber()}</h3>
                     </div>
                     <div className="book-item">
                         <span>total price</span>
-        <h3 className="title">${this.calculate()}</h3>
+                        <h3 className="title">{this.calculate()}vnd</h3>
                     </div>
                     <div className="book-item">
-                        <a href="#" className="btn button-main">proceed</a>
+                        <Link to={`/account`} className="btn button-main" onSubmit={() => {this.props.actProcess(this.props.seatNumber)}}>proceed</Link>
                     </div>
                 </div>
             </div>
@@ -50,8 +48,40 @@ class ProceedBook extends Component {
 
 const mapStateToProps = state => {
     return {
-        seat: state.seatReducer.seatNumber
+        seatNumber: state.seatReducer.seatNumber,
+        seat: state.seatReducer.seat || {
+            thongTinPhim: {
+                maLichChieu: 17761,
+                tenCumRap: "Đoán xem",
+                tenRap: "Rạp 7",
+                diaChi: "Quận cam",
+                tenPhim: "Đoán xem",
+                hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_GP07.jpg",
+                ngayChieu: "08/01/2019",
+                gioChieu: "10:01"
+            },
+            danhSachGhe: [
+                {
+                    daDat: false,
+                    giaVe: 75000,
+                    loaiGhe: "Thuong",
+                    maGhe: 53321,
+                    maRap: 488,
+                    stt: "01",
+                    taiKhoanNguoiDat: null,
+                    tenGhe: "01"
+                }
+            ]
+        }
     }
 }
 
-export default connect(mapStateToProps, null)(ProceedBook);
+const mapDispatchToProps = dispatch => {
+    return {
+        actProcess: (data) => {
+            dispatch(action.actProcess(data));
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProceedBook);

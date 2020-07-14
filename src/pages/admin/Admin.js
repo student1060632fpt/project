@@ -26,7 +26,7 @@ class Admin extends Component {
   render() {
     return (
       <>
-        <h3>Admin</h3>
+        <h3 className="text-center mt-5 mb-3">Admin</h3>
         <div className="container">
           <div className="col-sm-6 mx-auto">
             <form onSubmit={this.handleLogin}>

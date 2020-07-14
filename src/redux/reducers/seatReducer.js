@@ -3,7 +3,8 @@ import * as ActionType from '../constants/ActionType';
 let initialState = {
     seat: null,
     resetSeat: null,
-    seatNumber: []
+    seatNumber: [],
+    process: null
 }
 
 const seatReducer = (state = initialState, action) => {
@@ -31,6 +32,10 @@ const seatReducer = (state = initialState, action) => {
             }
             state.seatNumber = seatNumber;
             console.log(state.seatNumber);
+            return { ...state };
+        }
+        case ActionType.PROCESS: {
+            state.process = action.data;
             return { ...state };
         }
         default: {

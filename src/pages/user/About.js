@@ -1,11 +1,19 @@
-import React, { useState, useEffect } from "react";
+import React, { Component } from "react";
 import Axios from "axios";
 import Movie from "../../components/Movie";
+import TicketSearch from "../../components/home/TicketSearch";
+import { connect } from "react-redux";
 
-function About() {
-  const [state, setState] = useState({ listMovie: [], status: true });
+class About extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listMovie: [],
+      status: true
+    }
+  }
 
-  useEffect(() => {
+  componentDidMount() {
     //Didmount so voi class component
     Axios({
       method: "GET",
@@ -13,29 +21,46 @@ function About() {
         "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07"
     })
       .then(rs => {
-        setState({
+        this.setState({
           listMovie: rs.data
         });
       })
       .catch(err => {
         console.log(err);
       });
-  }, []);
+  };
 
-  const renderHTML = () => {
-    return state.listMovie.map(movie => {
+  renderHTML = () => {
+    let keyword = this.props.keyword.toLowerCase();
+    let listMovie = this.state.listMovie;
+    listMovie = listMovie.filter(movie => {
+      console.log(movie.tenPhim.toLowerCase());
+      return movie.tenPhim.toLowerCase().indexOf(keyword) !== -1;
+    })
+
+    return listMovie.map(movie => {
       return <Movie key={movie.maPhim} movie={movie} />;
     });
   };
-
-  return (
-    <>
-      <div className="container">
-        <h3>About</h3>
-        <div className="row">{renderHTML()}</div>
-      </div>
-    </>
-  );
+  render() {
+    return (
+      <>
+        <section className="banner-section">
+          <div className="banner-background"></div>
+        </section>
+        <TicketSearch />
+        <div className="container about">
+          <h3 className="mb-4">Result</h3>
+          <div className="row">{this.renderHTML()}</div>
+        </div>
+      </>
+    );
+  }
+}
+const mapStateToProps = state => {
+  return {
+    keyword: state.movieReducer.keyword || "",
+  }
 }
 
-export default About;
+export default connect(mapStateToProps, null)(About);

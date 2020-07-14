@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
 import * as action from "../../redux/action";
 
@@ -15,22 +14,11 @@ class Seat extends Component {
     componentDidMount() {
         let id = this.props.match.params.id;
         this.props.getSeat(id);
-
-    }
-    openSeat = event => {
-        // console.log(event);
-
-        // if (event.currentTarget.className.indexOf("active") === -1) {
-        //   event.currentTarget.className += " active";
-
-        // } else {
-        //   event.currentTarget.className = event.currentTarget.className.replace("active", "");
-        // }
     }
 
     render() {
         let seat = this.props.seat;
-        // console.log(seat.danhSachGhe);
+        console.log(seat.danhSachGhe);
         return (
             <>
                 <div className="banner-detail banner-listmovie">
@@ -61,7 +49,7 @@ class Seat extends Component {
                         <ExSeat />
 
                         {/* proceed book  */}
-                        <ProceedBook />
+                        <ProceedBook/>
 
                     </div>
                 </div>
