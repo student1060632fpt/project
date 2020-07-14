@@ -1,5 +1,6 @@
 <h1>PROJECT WEB RẠP PHIM</h1>
 Ngày 23 tháng 3 năm 2020 - Ngày 30 tháng 4
+https://student1060632fpt.github.io/project/
 ─
 <h3>Nguyễn Lê Xuân Hòa</h3>
 --hoalenguyen1999@gmail.com
