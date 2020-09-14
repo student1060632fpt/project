@@ -17,6 +17,7 @@ class DangNhap extends Component {
         this.setState({
             [name]: value
         }
+            // , console.log(this.state.taiKhoan, this.state.matKhau)
         )
     }
 
