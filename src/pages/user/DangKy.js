@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 class DangKy extends Component {
   constructor(props) {
-    // http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy
+    // https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy
     super(props);
     this.state = {
       values: {

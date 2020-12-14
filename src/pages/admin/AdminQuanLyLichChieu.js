@@ -165,7 +165,7 @@ const mapStateToProps = state => {
       tenPhim: "stringHelo2321312asdasda adasd",
       biDanh: "stringhelo2321312asdasda-adasd",
       trailer: "string",
-      hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/stringhelo2321312asdasda-adasd_GP07.jpeg?alt=media",
+      hinhAnh: "https://movie0706.cybersoft.edu.vn/hinhanh/stringhelo2321312asdasda-adasd_GP07.jpeg?alt=media",
       moTa: "string",
       maNhom: "GP07",
       ngayKhoiChieu: "2020-02-06T00:00:00",
