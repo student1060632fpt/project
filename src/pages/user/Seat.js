@@ -69,7 +69,11 @@ const mapStateToProps = state => {
                 tenRap: "Rạp 7",
                 diaChi: "Quận cam",
                 tenPhim: "Đoán xem",
+<<<<<<< HEAD
                 hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_GP09.jpg",
+=======
+                hinhAnh: "https://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_GP07.jpg",
+>>>>>>> e99bb7ea98bba77532af7e605a99cbc6ae78eb14
                 ngayChieu: "08/01/2019",
                 gioChieu: "10:01"
             },

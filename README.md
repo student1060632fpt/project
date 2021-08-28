@@ -7,7 +7,7 @@ https://student1060632fpt.github.io/project/
 _
 <h3>Website quan trọng</h3>
 
-http://pixner.net/boleto/demo/index.html
+https://pixner.net/boleto/demo/index.html
 
 link github:
 https://github.com/student1060632fpt/project
@@ -23,7 +23,7 @@ b1: import hết các script vào, ví dụ như đưa cái font-awesome vào re
 _
 <h3>link github đồ án tham khảo</h3>
 https://github.com/php1301/DoAnReactJS
-http://cinemax-movie.surge.sh/
+https://cinemax-movie.surge.sh/
 
 link tix gốc
 https://tix.vn
@@ -229,7 +229,7 @@ In the project directory, you can run:
 ### `yarn start`
 
 Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [https://localhost:3000](https://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.

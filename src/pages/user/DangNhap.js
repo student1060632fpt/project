@@ -3,7 +3,7 @@ import * as action from './../../redux/action';
 import { connect } from 'react-redux';
 
 class DangNhap extends Component {
-    // http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap
+    // https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap
     constructor(props) {
         super(props);
         this.state = {
