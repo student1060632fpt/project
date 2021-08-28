@@ -61,7 +61,7 @@ class AdminQLND extends Component {
 
     handleEdit = userInput => {
         delete userInput['tableData'];
-        let user = { ...userInput, maNhom: "GP07" };
+        let user = { ...userInput, maNhom: "GP09" };
         this.props.putDSND(user);
     }
 

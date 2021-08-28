@@ -92,10 +92,10 @@ class TicketSearch extends Component {
                             </div>
                             <span className="type">Cinema</span>
                             <select className="select-bar">
-                                <option value="26-12-19">23/10/2020</option>
-                                <option value="26-12-19">24/10/2020</option>
-                                <option value="26-12-19">25/10/2020</option>
-                                <option value="26-12-19">26/10/2020</option>
+                                <option value="26-12-19">BHD</option>
+                                <option value="26-12-19">CGV</option>
+                                <option value="26-12-19">Cinestar</option>
+                                <option value="26-12-19">Lotte Cinema</option>
                             </select>
                         </div>
                     </form>

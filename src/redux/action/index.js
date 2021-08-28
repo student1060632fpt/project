@@ -5,11 +5,11 @@ export const actDangNhap = (user, history) => {
   return dispatch => {
     Axios({
       method: "POST",
-      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap",
       data: user
     })
     .then(rs => {
-      // console.log(rs.data);
+      console.log(rs);
       // alert("Sign in successful!");
       localStorage.setItem("user", JSON.stringify(rs.data));
       history.push("/");
@@ -24,7 +24,7 @@ export const actDangKy = (user, history) => {
   return dispatch => {
     Axios({
       method: "POST",
-      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangKy",
       data: user,
     })
       .then(rs => {
@@ -46,7 +46,7 @@ export const actThemNguoiDungAPI = user => {
     Axios({
       method: "POST",
       url:
-        "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
       data: user,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`
@@ -66,7 +66,7 @@ export const actLoginAdmin = (user, history) => {
   return dispatch => {
     Axios({
       method: "POST",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/DangNhap`,
       data: user
     })
       .then(rs => {
@@ -89,7 +89,7 @@ export const actGetListMovieAPI = () => {
     Axios({
       method: "GET",
       url:
-        "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP07"
+        "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP09"
     })
       .then(rs => {
         dispatch(actGetListMovie(rs.data));
@@ -104,7 +104,7 @@ export const actDetailMovie = id => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayThongTinPhim?MaPhim=${id}`
     })
       .then(rs => {
         dispatch(actGetDetailMovie(rs.data));
@@ -119,7 +119,7 @@ export const actSeat = id => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${id}`
     })
       .then(rs => {
         dispatch(actGetSeat(rs.data))
@@ -136,7 +136,7 @@ export const actTheater = maRap => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP07`
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinLichChieuHeThongRap?maHeThongRap=${maRap}&maNhom=GP09`
     })
       .then(rs => {
         // console.log(rs.data);
@@ -152,7 +152,7 @@ export const actCinema = () => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyRap/LayThongTinHeThongRap`,
     })
       .then(rs => {
         dispatch(actGetCinema(rs.data))
@@ -168,7 +168,7 @@ export const actLayDanhSachNguoiDung = () => {
   return dispatch => {
     Axios({
       method: "GET",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP07`
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/LayDanhSachNguoiDung?MaNhom=GP09`
     })
     .then(rs => {
       dispatch(actDanhSachNguoiDung(rs.data));
@@ -185,7 +185,7 @@ export const actPutDSND = user => {
   return dispatch => {
     Axios({
       method: "PUT",
-      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung",
       data: user,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`
@@ -206,7 +206,7 @@ export const actAddDSND = user => {
   return dispatch => {
     Axios({
       method: "POST",
-      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/ThemNguoiDung",
       data: user,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`
@@ -227,7 +227,7 @@ export const actDeleteDSND = user => {
   return dispatch => {
     Axios({
       method: "DELETE",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyNguoiDung/XoaNguoiDung?TaiKhoan=${user}`,
       // data: user,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`
@@ -256,7 +256,7 @@ export const actAddLC = movie => {
   return dispatch => {
     Axios({
       method: "POST",
-      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/ThemPhim",
       data: movie,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`
@@ -276,7 +276,7 @@ export const actEditLC = movie => {
   return dispatch => {
     Axios({
       method: "POST",
-      url: "http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhim",
+      url: "https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/CapNhatPhim",
       data: movie,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`
@@ -297,7 +297,7 @@ export const actDeleteLC = user => {
   return dispatch => {
     Axios({
       method: "DELETE",
-      url: `http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${user}`,
+      url: `https://movie0706.cybersoft.edu.vn/api/QuanLyPhim/XoaPhim?MaPhim=${user}`,
       // data: user,
       headers: {
         Authorization: `Bearer ${userAdmin.accessToken}`

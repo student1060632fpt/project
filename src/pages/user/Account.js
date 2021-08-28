@@ -148,7 +148,7 @@ const mapStateToProps = state => {
         tenRap: "Rạp 7",
         diaChi: "Quận cam",
         tenPhim: "Đoán xem",
-        hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_GP07.jpg",
+        hinhAnh: "http://movie0706.cybersoft.edu.vn/hinhanh/i-am-not-a-rapper_GP09.jpg",
         ngayChieu: "08/01/2019",
         gioChieu: "10:01"
       },
